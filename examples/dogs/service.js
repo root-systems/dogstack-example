@@ -15,29 +15,28 @@ const services = {
 }
 
 module.exports = function (db) {
-  return function () {
-    const app = this
+  const app = feathers()
+  app.configure(configuration())
+  app.use(bodyParser.json())
+  app.use(bodyParser.urlencoded({ extended: true }))
+  app.configure(rest())
+  app.configure(hooks())
+  // services
+  forEach(services, (service, name) => {
+    const serviceRoute = name
+    app.use(serviceRoute, service(db))
+    app.service(serviceRoute).after(
+      service.after || {}
+    )
+    app.service(serviceRoute).before(
+      service.before || {}
+    )
+  })
 
-    app.configure(configuration())
-    app.use(bodyParser.json())
-    app.use(bodyParser.urlencoded({ extended: true }))
-    app.configure(rest('/api'))
-    app.configure(hooks())
-    // services
-    forEach(services, (service, name) => {
-      const serviceRoute = name
-      app.use(serviceRoute, service(db))
-      app.service(serviceRoute).after(
-        service.after || {}
-      )
-      app.service(serviceRoute).before(
-        service.before || {}
-      )
-    })
+  app.configure(authentication(app.get('auth')))
+    .configure(jwt())
+    .configure(local())
+    .configure(require('./authentication/service'))
 
-    app.configure(authentication(app.get('auth')))
-      .configure(jwt())
-      .configure(local())
-      .configure(require('./authentication/service'))
-  }
+  return app
 }

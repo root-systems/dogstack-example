@@ -1,7 +1,7 @@
 import feathers from 'feathers/client'
 import rest from 'feathers-rest/client'
 import hooks from 'feathers-hooks'
-import auth from 'feathers-authentication/client'
+import auth from 'feathers-authentication-client'
 
 const localStorage = window ? window.localStorage : null
 
@@ -10,7 +10,7 @@ const client = feathers()
   .configure(hooks())
   .configure(auth({
     storage: localStorage,
-    tokenKey: '41S'
+    accessTokenKey: '41S'
   }))
 
 export default client

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./index.js",
-    "dev": "DEBUG=dogs node-dev ./index.js",
+    "dev": "NODE_ENV=development DEBUG=dogs node-dev ./index.js",
     "migrate:latest": "NODE_ENV=development knex migrate:latest --knexfile db/knexfile.js",
     "migrate:rollback": "NODE_ENV=development knex migrate:rollback --knexfile db/knexfile.js",
     "seed": "NODE_ENV=development knex seed:run --knexfile db/knexfile.js"
@@ -30,6 +30,9 @@
     "dog-names": "^1.0.2",
     "feathers": "^2.1.1",
     "feathers-authentication": "^1.2.0",
+    "feathers-authentication-client": "^0.3.1",
+    "feathers-authentication-jwt": "^0.3.1",
+    "feathers-authentication-local": "^0.3.4",
     "feathers-configuration": "^0.4.1",
     "feathers-errors": "^2.6.2",
     "feathers-hooks": "^1.8.1",

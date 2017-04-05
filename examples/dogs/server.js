@@ -19,7 +19,7 @@ module.exports = function (db) {
   app.use(logger('dev'))
 
   // service api
-  app.configure(Service(db))
+  app.use('/api', Service(db))
 
   // static files
   app.use('/', feathers.static(path.join(__dirname, 'assets')))

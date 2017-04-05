@@ -8,7 +8,7 @@ export const signInStart = createAction('SIGN_IN_START')
 export const signIn = ({email, password}) => (dispatch, getState, api) => {
   dispatch(signInStart())
   api.authenticate({
-    type: 'local',
+    strategy: 'local',
     email,
     password
   }).then((account) => {
@@ -20,7 +20,7 @@ export const signIn = ({email, password}) => (dispatch, getState, api) => {
 export const signInWithToken = (token) => (dispatch, getState, api) => {
   dispatch(signInStart())
   api.authenticate({
-    type: 'token',
+    strategy: 'token',
     token
   }).then((account) => {
     dispatch(signInSuccess(account))
