@@ -14,6 +14,8 @@ const services = {
   accounts: require('./account/service'),
 }
 
+const authService = require('./authentication/service')
+
 module.exports = function (db) {
   const app = feathers()
   app.configure(configuration())
@@ -23,12 +25,11 @@ module.exports = function (db) {
   app.configure(hooks())
   // services
   forEach(services, (service, name) => {
-    const serviceRoute = name
-    app.use(serviceRoute, service(db))
-    app.service(serviceRoute).after(
+    app.use(name, service(db))
+    app.service(name).after(
       service.after || {}
     )
-    app.service(serviceRoute).before(
+    app.service(name).before(
       service.before || {}
     )
   })
@@ -36,7 +37,7 @@ module.exports = function (db) {
   app.configure(authentication(app.get('auth')))
     .configure(jwt())
     .configure(local())
-    .configure(require('./authentication/service'))
+    .configure(authService)
 
   return app
 }
