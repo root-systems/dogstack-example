@@ -1,7 +1,8 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'
 import createLogger from 'redux-logger'
-import { routerMiddleware } from 'react-router-redux'
+import { routerReducer, syncHistoryWithStore, routerActions, routerMiddleware } from 'react-router-redux'
+import { UserAuthWrapper } from 'redux-auth-wrapper'
 import { browserHistory } from 'react-router'
 
 import rootReducer from './reducer'

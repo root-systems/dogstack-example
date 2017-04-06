@@ -16,6 +16,14 @@
   :cat: see also <a href='https://github.com/enspiral-root-systems/cat-stack'>catstack</a>, dogstack's smarter, slimmer, more cunning partner in crime
 </h4>
 
+-> make topic called agent
+-> agent is an id that links to other foreign objects
+-> agent might have a type person group or bot
+agent has many accounts
+account is a way of logging in
+agent has one profile
+agent has and belongs to many relationships
+
 ## features
 
 - provides generators for scaffolding apps made of popular libraries
