@@ -1,6 +1,6 @@
 const feathersKnex = require('feathers-knex')
 const hooks = require('feathers-hooks')
-var hashPassword = require('feathers-authentication-local').hooks.hashPassword
+const hashPassword = require('feathers-authentication-local').hooks.hashPassword
 const auth = require('feathers-authentication').hooks
 
 module.exports = function (db) {
@@ -11,5 +11,23 @@ module.exports = function (db) {
 }
 
 module.exports.before = {
-  create: hashPassword() 
+  create: [
+    hashPassword(),
+    createAgent,
+  ]
 }
+
+
+function createAgent(hook) {
+  const agents = hook.app.service('agents')
+  const account = hook.data
+
+  if (!account) return Promise.resolve(hook)
+
+  return agents.create({})
+    .then(agent => {
+      hook.data.agentId = agent.id
+      return Promise.resolve(hook) 
+    })
+}
+
