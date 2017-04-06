@@ -3,6 +3,7 @@ exports.up = function (knex, Promise) {
     table.increments('id')
     table.string('password')
     table.string('email')
+    table.unique('email')
   })
 }
 
