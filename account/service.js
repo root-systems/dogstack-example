@@ -17,6 +17,11 @@ module.exports.before = {
   ]
 }
 
+module.exports.error = {
+  create: [
+    deleteAgentIfCreateFailed,
+  ]
+}
 
 function createAgent(hook) {
   const agents = hook.app.service('agents')
@@ -31,3 +36,9 @@ function createAgent(hook) {
     })
 }
 
+function deleteAgentIfCreateFailed(hook) {
+  const agents = hook.app.service('agents')
+  const account = hook.data
+  console.log('we here', hook)
+
+}
