@@ -38,7 +38,7 @@ function createAgent(hook) {
 
 function deleteAgentIfCreateFailed(hook) {
   const agents = hook.app.service('agents')
-  const account = hook.data
-  console.log('we here', hook)
-
+  const agentToDelete = hook.data.agentId
+  return agents.remove({id: agentToDelete})
+    .then(() => Promise.resolve(hook))
 }
