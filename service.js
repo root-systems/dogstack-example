@@ -27,12 +27,11 @@ module.exports = function (db) {
   // services
   forEach(services, (service, name) => {
     app.use(name, service(db))
-    app.service(name).after(
-      service.after || {}
-    )
-    app.service(name).before(
-      service.before || {}
-    )
+    app.service(name).hooks({
+      before: service.before || {},
+      after: service.after || {},
+      error: service.error || {}
+    })
   })
 
   app.configure(authentication(app.get('auth')))
