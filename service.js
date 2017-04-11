@@ -2,7 +2,7 @@ const feathers = require('feathers')
 const bodyParser = require('body-parser')
 const rest = require('feathers-rest')
 const hooks = require('feathers-hooks')
-const { forEach } = require('ramda')
+const { forEachObjIndexed } = require('ramda')
 
 const configuration = require('feathers-configuration')
 const authentication = require('feathers-authentication')
@@ -25,7 +25,7 @@ module.exports = function (db) {
   app.configure(rest())
   app.configure(hooks())
   // services
-  forEach((service, name) => {
+  forEachObjIndexed((service, name) => {
     app.use(name, service(db))
     app.service(name).hooks({
       before: service.before || {},
