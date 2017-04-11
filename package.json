@@ -20,12 +20,16 @@
           "presets": [
             "es2015",
             "react"
+          ],
+          "plugins": [
+            "ramda"
           ]
         }
       ]
     ]
   },
   "dependencies": {
+    "babel-plugin-ramda": "^1.2.0",
     "body-parser": "^1.17.1",
     "dog-names": "^1.0.2",
     "feathers": "^2.1.1",
