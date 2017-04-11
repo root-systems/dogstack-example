@@ -3,7 +3,6 @@ import { Link } from 'react-router'
 import { connect as connectFela } from 'react-fela'
 import dogNames from 'dog-names'
 import { map, addIndex, values } from 'ramda'
-import random from 'lodash/random'
 
 import Dog from './dog'
 
