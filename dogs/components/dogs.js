@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router'
 import { connect as connectFela } from 'react-fela'
 import dogNames from 'dog-names'
-import { map, addIndex, values, keys} from 'ramda'
+import { map, addIndex, values, keys, pipe} from 'ramda'
 
 import Dog from './dog'
 
@@ -10,6 +10,7 @@ import gcs from '../util/generate-component-styles'
 import styles from '../styles/dogs'
 
 const mapIndexed = addIndex(map)
+const mapIndexedToValues = pipe(mapIndexed, values)
 
 class Dogs extends React.Component {
   componentDidMount () {
@@ -23,9 +24,9 @@ class Dogs extends React.Component {
       <span>MY DOGS</span>
       <div className={styles.dogsContainer}>
         {
-          values(mapIndexed((dog, i) => {
+          mapIndexedToValues((dog, i) => {
             return <Dog key={i} name={dog.name} />
-          }, dogs))
+          }, dogs)
         }
       </div>
       <button
