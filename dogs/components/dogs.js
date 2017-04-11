@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router'
 import { connect as connectFela } from 'react-fela'
 import dogNames from 'dog-names'
-import { map, addIndex, values } from 'ramda'
+import { map, addIndex, values, keys} from 'ramda'
 
 import Dog from './dog'
 
@@ -37,7 +37,7 @@ class Dogs extends React.Component {
       <button
         className={styles.adoptButton}
         onClick={() => {
-          removeDog(0)
+          removeDog(keys(dogs)[0])
         }}
       >
         Give a dog to a friend!
