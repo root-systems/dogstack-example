@@ -1,5 +1,5 @@
 const feathersKnex = require('feathers-knex')
-const keyBy = require('lodash/keyBy')
+const { indexBy, prop } = require('ramda')
 
 module.exports = function (db) {
   return feathersKnex({
@@ -10,6 +10,6 @@ module.exports = function (db) {
 
 module.exports.after = {
   find: (hook)  => {
-    hook.result = keyBy(hook.result, 'id')
+    hook.result = indexBy(prop('id'), hook.result)
   }
 }

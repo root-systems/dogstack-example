@@ -1,6 +1,5 @@
 import {combineReducers} from 'redux'
-import assign from 'lodash/assign'
-import omit from 'lodash/omit'
+import { merge, omit } from 'ramda'
 
 const dogs = function (state = {}, action) {
   switch (action.type) {
@@ -9,7 +8,7 @@ const dogs = function (state = {}, action) {
     case 'FIND_DOG_SUCCESS':
       return action.payload
     case 'REMOVE_DOG_SUCCESS':
-      return omit(state, action.payload.id)
+      return omit(action.payload.id, state)
     default:
       return state
   }

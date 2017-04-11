@@ -1,8 +1,8 @@
-import mapValues from 'lodash/mapValues'
+import { map } from 'ramda'
 
 export default function generateComponentStyles (styles) {
   return (props) => (renderer) => {
-    return mapValues(styles, (style) => {
+    return map(styles, (style) => {
       return renderer.renderRule(style, props)
     })
   }

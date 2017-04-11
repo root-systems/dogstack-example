@@ -2,8 +2,7 @@ import React from 'react'
 import { Link } from 'react-router'
 import { connect as connectFela } from 'react-fela'
 import dogNames from 'dog-names'
-import map from 'lodash/map'
-import keys from 'lodash/keys'
+import { map, keys, values } from 'ramda'
 import random from 'lodash/random'
 
 import Dog from './dog'
@@ -23,9 +22,9 @@ class Dogs extends React.Component {
       <span>MY DOGS</span>
       <div className={styles.dogsContainer}>
         {
-          map(dogs, (dog, i) => {
+          values(map((dog, i) => {
             return <Dog key={i} name={dog.name} />
-          })
+          }, dogs))
         }
       </div>
       <button
@@ -37,8 +36,7 @@ class Dogs extends React.Component {
       <button
         className={styles.adoptButton}
         onClick={() => {
-          const randomDogId = keys(dogs)[random(keys(dogs).length - 1)]
-          removeDog(randomDogId)
+          removeDog(0)
         }}
       >
         Give a dog to a friend!
