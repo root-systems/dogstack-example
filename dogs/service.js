@@ -1,5 +1,7 @@
 const feathersKnex = require('feathers-knex')
-const { indexBy, prop } = require('ramda')
+const { indexBy, prop, pipe } = require('ramda')
+
+const indexByProperty = pipe(prop, indexBy)
 
 module.exports = function (db) {
   return feathersKnex({
@@ -10,6 +12,6 @@ module.exports = function (db) {
 
 module.exports.after = {
   find: (hook)  => {
-    hook.result = indexBy(prop('id'), hook.result)
+    hook.result = indexByProperty('id')(hook.result)
   }
 }
