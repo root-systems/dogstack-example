@@ -4,14 +4,10 @@ const account = function (state = {}, action) {
   switch (action.type) {
     case 'SIGN_UP_SUCCESS':
       return action.payload
-    case 'SIGN_UP_ERROR':
-      return {error: action.payload}
     case 'SIGN_IN_SUCCESS':
       return action.payload
     case 'SIGN_OUT':
       return {}
-    case 'SIGN_IN_ERROR':
-      return {error: action.payload}
     default:
       return state
   }

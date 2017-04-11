@@ -12,8 +12,8 @@ export const signIn = ({email, password}) => (dispatch, getState, api) => {
     email,
     password
   }).then((account) => {
+    console.log('signinSuccess', account)
     dispatch(signInSuccess(account))
-    browserHistory.push('/reviews')
   })
   .catch(err => dispatch(signInError(err)))
 }
@@ -24,7 +24,6 @@ export const signInWithToken = (token) => (dispatch, getState, api) => {
     token
   }).then((account) => {
     dispatch(signInSuccess(account))
-    browserHistory.push('/reviews')
   })
   .catch(err => dispatch(signInError(err)))
 }

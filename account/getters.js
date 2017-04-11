@@ -7,9 +7,21 @@ export const getSigningIn = createSelector(
   (account) => account.signingIn
 )
 
+export const getToken = (state) => {
+  return state.account.account 
+}
 export const getError = createSelector(
   getAccount,
   (account) => account.error
+)
+
+export const getSignedIn = createSelector(
+  getToken,
+  getError,
+  getSigningIn,
+  (token, error, signingIn) => { 
+    return (!error && !signingIn) ? token : {}
+  }
 )
 
 export const getSignInProps = createStructuredSelector({
