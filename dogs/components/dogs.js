@@ -10,7 +10,11 @@ import gcs from '../util/generate-component-styles'
 import styles from '../styles/dogs'
 
 const mapIndexed = addIndex(map)
-const mapIndexedToValues = pipe(mapIndexed, values)
+const mapDogs = mapIndexed((dog, i) => {
+  return <Dog key={i} name={dog.name} />
+})
+const mapDogsToValues = pipe(mapDogs, values)
+
 
 class Dogs extends React.Component {
   componentDidMount () {
@@ -20,14 +24,11 @@ class Dogs extends React.Component {
   render () {
     const { styles, dogs, createDog, removeDog } = this.props
 
+
     return <div className={styles.container}>
       <span>MY DOGS</span>
       <div className={styles.dogsContainer}>
-        {
-          mapIndexedToValues((dog, i) => {
-            return <Dog key={i} name={dog.name} />
-          }, dogs)
-        }
+        {mapDogsToValues(dogs)}
       </div>
       <button
         className={styles.adoptButton}
