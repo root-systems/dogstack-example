@@ -1,15 +1,14 @@
 import {combineReducers} from 'redux'
-import assign from 'lodash/assign'
-import omit from 'lodash/omit'
+import { merge, omit } from 'ramda'
 
 const dogs = function (state = {}, action) {
   switch (action.type) {
     case 'CREATE_DOG_SUCCESS':
-      return assign({}, state, { [action.payload.id]: action.payload })
+      return merge(state, { [action.payload.id]: action.payload })
     case 'FIND_DOG_SUCCESS':
       return action.payload
     case 'REMOVE_DOG_SUCCESS':
-      return omit(state, action.payload.id)
+      return omit([action.payload.id.toString()], state)
     default:
       return state
   }

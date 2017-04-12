@@ -20,12 +20,16 @@
           "presets": [
             "es2015",
             "react"
+          ],
+          "plugins": [
+            "ramda"
           ]
         }
       ]
     ]
   },
   "dependencies": {
+    "babel-plugin-ramda": "^1.2.0",
     "body-parser": "^1.17.1",
     "dog-names": "^1.0.2",
     "feathers": "^2.1.1",
@@ -47,8 +51,8 @@
     "fela-plugin-unit": "^4.3.2",
     "fela-plugin-validator": "^4.3.2",
     "knex": "^0.12.9",
-    "lodash": "^4.17.4",
     "pg": "^6.1.5",
+    "ramda": "^0.23.0",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "react-fela": "^4.3.2",
