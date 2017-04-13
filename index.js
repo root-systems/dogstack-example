@@ -11,16 +11,11 @@ const port = normalizePort(process.env.PORT || '3000')
 app.set('port', port)
 
 /**
- * Create HTTP server.
+ * Create HTTP server and
+ * listen on provided port, on all network interfaces.
  */
 
-const server = http.createServer(app)
-
-/**
- * Listen on provided port, on all network interfaces.
- */
-
-server.listen(port)
+const server = app.listen(port)
 server.on('error', onError)
 server.on('listening', onListening)
 

@@ -19,7 +19,11 @@ module.exports = function (db) {
   app.use(logger('dev'))
 
   // service api
-  app.use('/api', Service(db))
+  const apiService = Service(db)
+  app.use('/api', apiService)
+  // HACK trigger api service setup on main app setup
+  // see https://github.com/feathersjs/feathers/issues/232
+  app.use('', { setup: function (app, path) { apiService.setup() } })
 
   // static files
   app.use('/', feathers.static(path.join(__dirname, 'assets')))
