@@ -37,7 +37,7 @@ module.exports = function (db) {
   app.configure(authentication(app.get('auth')))
     .configure(jwt())
     .configure(local())
-    .configure(authService)
+    .configure(authService())
 
   return app
 }
