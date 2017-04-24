@@ -43,6 +43,6 @@ agent has and belongs to many relationships
 ## prior art
 
 - architecture by [@ahdinosaur](https://github.com/ahdinosaur) on previous private projects
-- https://github.com/jlongster/react-redux-universal-hot-example0
+- https://github.com/jlongster/react-redux-universal-hot-example
 - https://github.com/react-boilerplate/react-boilerplate
 - general discussions with teammates
