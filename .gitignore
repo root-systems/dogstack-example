@@ -2,3 +2,5 @@ node_modules
 npm-debug.log*
 
 dev.sqlite3
+
+/browserify-cache.json

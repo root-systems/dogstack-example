@@ -1,22 +1,21 @@
 const feathers = require('feathers')
-const path = require('path')
-const logger = require('morgan')
+const { join } = require('path')
+const httpLogger = require('pino-http')
 const errorHandler = require('feathers-errors/handler')
-const Bundler = require('browserify')
-const BundlerMiddleware = require('watchify-middleware')
-const LiveReload = require('tiny-lr')
-const Accept = require('accepts')
-const injectLiveReloadScript = require('inject-lr-script')
-const createIndexHtml = require('create-html')
+const UifyServer = require('uify-server')
 const pump = require('pump')
-const BufferList = require('bl')
+const typeofIs = require('typeof-is')
 
 const Service = require('./service')
 
-module.exports = function (db) {
+module.exports = function (options) {
+  const { db, log } = options
+
   const app = feathers()
 
-  app.use(logger('dev'))
+  app.use(httpLogger({
+    logger: log
+  }))
 
   // service api
   const apiService = Service(db)
@@ -26,67 +25,21 @@ module.exports = function (db) {
   app.use('', { setup: function (app, path) { apiService.setup() } })
 
   // static files
-  app.use('/', feathers.static(path.join(__dirname, 'assets')))
+  app.use('/', feathers.static(join(__dirname, 'assets')))
 
   // bundler
-  const bundleUrl = '/bundle.js'
-  const bundleEntry = 'browser.js'
-  const bundler = Bundler(bundleEntry, {
+  app.use(Bundler({
+    entry: join(__dirname, 'browser.js'),
     debug: app.get('env') === 'development',
-    // config for watchify
-    cache: {},
-    packageCache: {},
-    basedir: __dirname
-  })
-  if (app.get('env') === 'development') {
-    const bundlerEmitter = BundlerMiddleware.emitter(bundler)
-    const liveReloadServer = LiveReload()
-    liveReloadServer.listen()
-    bundlerEmitter.on('update', () => {
-      LiveReload.changed(bundleUrl)
-    })
-    app.use(injectLiveReloadScript())
-    app.use(function (req, res, next) {
-      const accept = Accept(req)
-      if (req.url === bundleUrl) {
-        bundlerEmitter.middleware(req, res)
-        return
-      }
-      switch (accept.type(['html'])) {
-        case 'html':
-          res.setHeader('content-type', 'text/html')
-          res.send(createIndexHtml({
-            script: bundleUrl,
-            head: `
-              <style id="app-styles"></style>
-              <style id="app-fonts"></style>
-              <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
-            `,
-            body: `<div id='app'></div>`
-          }))
-          return
-      }
-      next()
-    })
-  } else {
-    // TODO publish as a re-usable module
-    // browserify-serve?
-    var bundleReady = false
-    var bundleQueue = []
-    const bundleCache = BufferList()
-    pump(bundler.bundle(), bundleCache, (err) => {
-      bundleReady = true
-      bundleQueue.forEach(queueItem => queueItem())
-      bundleQueue = null
-    })
-    app.use(function (req, res, next) {
-      if (bundleReady) sendBundle()
-      else bundleQueue.push(sendBundle)
-      function sendBundle () {
-        pump(bundleCache.duplicate(), res)
-      }
-    })
-  }
+    optimize: app.get('env') === 'production',
+    head: `
+      <style id="app-styles"></style>
+      <style id="app-fonts"></style>
+      <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+    `,
+    body: `<div id='app'></div>`,
+    log
+  }))
 
   app.use(function (err, req, res, next) {
     if (err) console.error('error', err)
@@ -96,4 +49,31 @@ module.exports = function (db) {
   // error handler
   app.use(errorHandler())
   return app
+}
+
+// wrap uify-server to be compatible with
+// express middleware and next(err)
+//
+// TODO maybe this should be `express-uify`?
+// or maybe `uify-server` shouldn't expect `http-sender`
+function Bundler (options) {
+  const uifyServer = UifyServer(options)
+
+  return (req, res, next) => {
+    uifyServer(req, res, {}, finalHandler)
+
+    function finalHandler (err, value) {
+      if (err) next(err)
+      else valueHandler(req, res, next, value)
+    }
+  }
+
+  function valueHandler (req, res, next, value) {
+    if (typeofIs.string(value) || Buffer.isBuffer(value)) {
+      res.send(value)
+    } else {
+      // is stream
+      pump(value, res, next)
+    }
+  }
 }

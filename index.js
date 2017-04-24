@@ -1,7 +1,12 @@
-const db = require('./db') // knex instance
-const app = require('./server')(db) // app
-const debug = require('debug')('dogs')
+// this *must* be first (mw)
+// because `https://github.com/pinojs/pino-debug#programmatic`
+const log = require('./log')
+
 const http = require('http')
+const debug = require('debug')('example')
+
+const db = require('./db') // knex instance
+const app = require('./server')({ db, log }) // app
 
 /**
  * Get port from environment and store in Express.
@@ -76,5 +81,5 @@ function onListening() {
   const bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port
-  debug('Listening on ' + bind)
+  log.info('Listening on ' + bind)
 }
