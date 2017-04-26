@@ -1,13 +1,18 @@
 import feathers from 'feathers/client'
-import rest from 'feathers-rest/client'
+import primus from 'feathers-primus/client'
 import hooks from 'feathers-hooks'
 import auth from 'feathers-authentication-client'
+import rx from 'feathers-reactive'
+import Rx from 'rxjs'
 
 const localStorage = window ? window.localStorage : null
 
+const socket = new Primus()
+
 const client = feathers()
-  .configure(rest('/api').fetch(window.fetch.bind(window)))
+  .configure(primus(socket))
   .configure(hooks())
+  .configure(rx(Rx))
   .configure(auth({
     storage: localStorage,
     accessTokenKey: '41S'

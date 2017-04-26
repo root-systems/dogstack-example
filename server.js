@@ -17,13 +17,6 @@ module.exports = function (options) {
     logger: log
   }))
 
-  // service api
-  const apiService = Service(db)
-  app.use('/api', apiService)
-  // HACK trigger api service setup on main app setup
-  // see https://github.com/feathersjs/feathers/issues/232
-  app.use('', { setup: function (app, path) { apiService.setup() } })
-
   // static files
   app.use('/', feathers.static(join(__dirname, 'assets')))
 
@@ -36,10 +29,14 @@ module.exports = function (options) {
       <style id="app-styles"></style>
       <style id="app-fonts"></style>
       <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+      <script src="/primus/primus.js"></script>
     `,
     body: `<div id='app'></div>`,
     log
   }))
+
+  // service api
+  app.configure(Service(db))
 
   app.use(function (err, req, res, next) {
     if (err) console.error('error', err)
