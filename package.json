@@ -6,9 +6,9 @@
   "scripts": {
     "start": "node ./index.js",
     "dev": "NODE_ENV=development DEBUG=dogs node-dev ./index.js",
-    "migrate:latest": "NODE_ENV=development knex migrate:latest --knexfile db/knexfile.js",
-    "migrate:rollback": "NODE_ENV=development knex migrate:rollback --knexfile db/knexfile.js",
-    "seed": "NODE_ENV=development knex seed:run --knexfile db/knexfile.js"
+    "db:migrate:latest": "NODE_ENV=development knex migrate:latest --knexfile db/knexfile.js",
+    "db:migrate:rollback": "NODE_ENV=development knex migrate:rollback --knexfile db/knexfile.js",
+    "db:seed": "NODE_ENV=development knex seed:run --knexfile db/knexfile.js"
   },
   "author": "iainkirkpatrick",
   "license": "ISC",
