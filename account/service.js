@@ -13,17 +13,17 @@ module.exports = function (db) {
 module.exports.before = {
   create: [
     hashPassword(),
-    createAgent,
+    createAgent
   ]
 }
 
 module.exports.error = {
   create: [
-    deleteAgentIfCreateFailed,
+    deleteAgentIfCreateFailed
   ]
 }
 
-function createAgent(hook) {
+function createAgent (hook) {
   const agents = hook.app.service('agents')
   const account = hook.data
 
@@ -32,11 +32,11 @@ function createAgent(hook) {
   return agents.create({})
     .then(agent => {
       hook.data.agentId = agent.id
-      return Promise.resolve(hook) 
+      return Promise.resolve(hook)
     })
 }
 
-function deleteAgentIfCreateFailed(hook) {
+function deleteAgentIfCreateFailed (hook) {
   const agents = hook.app.service('agents')
   const agentToDelete = hook.data.agentId
   return agents.remove({id: agentToDelete})

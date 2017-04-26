@@ -11,7 +11,7 @@ module.exports = function (db) {
 }
 
 module.exports.after = {
-  find: (hook)  => {
+  find: (hook) => {
     hook.result = indexById(hook.result)
   }
 }

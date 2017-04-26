@@ -24,7 +24,6 @@ const options = {
 }
 
 export default class SignIn extends React.Component {
-
   onSubmit (evt) {
     evt.preventDefault()
     const value = this.refs.form.getValue()
@@ -33,7 +32,7 @@ export default class SignIn extends React.Component {
 
   render () {
     return (
-      <div className={"TODO"}>
+      <div className={'TODO'}>
         <form onSubmit={(evt) => this.onSubmit(evt)} >
           <t.form.Form type={SignUpFormSchema} options={options} ref='form' />
           <button type='submit'>Sign In</button>
@@ -41,5 +40,4 @@ export default class SignIn extends React.Component {
       </div>
     )
   }
-
 }
