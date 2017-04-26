@@ -7,7 +7,7 @@ const auth = require('feathers-authentication')
 // return a new JWT access token.
 
 module.exports = function () {
-  return function() {
+  return function () {
     const app = this
     app.service('authentication').hooks({
       before: {

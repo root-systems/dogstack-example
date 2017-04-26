@@ -1,5 +1,4 @@
 import { createAction } from 'redux-actions'
-import { browserHistory } from 'react-router'
 
 export const signInSuccess = createAction('SIGN_IN_SUCCESS')
 export const signOut = createAction('SIGN_OUT')

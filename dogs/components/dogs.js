@@ -15,7 +15,6 @@ const mapDogs = mapIndexed((dog, i) => {
 })
 const mapDogsToValues = pipe(mapDogs, values)
 
-
 class Dogs extends React.Component {
   componentDidMount () {
     this.props.findDog()
@@ -23,7 +22,6 @@ class Dogs extends React.Component {
 
   render () {
     const { styles, dogs, createDog, removeDog } = this.props
-
 
     return <div className={styles.container}>
       <span>MY DOGS</span>
@@ -44,8 +42,8 @@ class Dogs extends React.Component {
       >
         Give a dog to a friend!
       </button>
-      <Link to="/signup">Sign Up</Link>
-      <Link to="/signin">Sign In</Link>
+      <Link to='/signup'>Sign Up</Link>
+      <Link to='/signin'>Sign In</Link>
     </div>
   }
 }

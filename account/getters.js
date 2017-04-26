@@ -20,4 +20,3 @@ export const getError = createSelector(
 export const getSignInProps = createStructuredSelector({
   error: getError
 })
-

@@ -14,7 +14,6 @@ import DogsContainer from './dogs/containers/dogs'
 import SignInContainer from './account/containers/signIn'
 import SignUpContainer from './account/containers/signUp'
 
-
 export default function ({ store }) {
   return <Router history={history}>
     <Route path='/' component={Layout}>

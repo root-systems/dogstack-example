@@ -8,4 +8,3 @@ export default connect(
   null,
   {signUp}
 )(SignUp)
-
