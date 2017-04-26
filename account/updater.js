@@ -1,6 +1,6 @@
-import { combineReducers } from 'redux'
+import { updateStateAt, combine, withDefaultState, decorate } from 'redux-fp'
 
-const account = function (state = {}, action) {
+const account = action => (state = {}) => {
   switch (action.type) {
     case 'SIGN_UP_SUCCESS':
       return action.payload
@@ -13,7 +13,7 @@ const account = function (state = {}, action) {
   }
 }
 
-const signingIn = function (state = false, action) {
+const signingIn = action => (state = false) => {
   switch (action.type) {
     case 'SIGN_IN_START':
       return true
@@ -26,7 +26,7 @@ const signingIn = function (state = false, action) {
   }
 }
 
-const signingUp = function (state = false, action) {
+const signingUp = action => (state = false) => {
   switch (action.type) {
     case 'SIGN_UP_START':
       return true
@@ -39,23 +39,30 @@ const signingUp = function (state = false, action) {
   }
 }
 
-const error = function (state = {}, action) {
+const error = action => (state = {}) => {
   switch (action.type) {
     case 'SIGN_UP_START':
     case 'SIGN_IN_START':
       return {}
     case 'SIGN_UP_ERROR':
+      console.error(action.payload)
       return action.payload
     case 'SIGN_IN_ERROR':
+      console.error(action.payload)
       return action.payload
     default:
       return state
   }
 }
 
-export default combineReducers({
-  account,
-  signingIn,
-  signingUp,
-  error
-})
+export default decorate(
+  withDefaultState({}),
+  updateStateAt('account'),
+  withDefaultState({}),
+  combine({
+    account,
+    signingIn,
+    signingUp,
+    error
+  })
+)

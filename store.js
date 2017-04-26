@@ -1,24 +1,32 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'
+import { createEpicMiddleware } from 'redux-observable'
 import { createLogger } from 'redux-logger'
 import { routerReducer, syncHistoryWithStore, routerActions, routerMiddleware } from 'react-router-redux'
 import { browserHistory } from 'react-router'
 
-import rootReducer from './reducer'
-import client from './client'
+import feathers from './client'
+import rootUpdater from './updater'
+import rootEpic from './epic'
 
 const middleware = [
-  thunk.withExtraArgument(client),
+  thunk.withExtraArgument(feathers),
+  createEpicMiddleware(rootEpic, { dependencies: { feathers } }),
   routerMiddleware(browserHistory),
-  createLogger()// TODO, remove
+  createLogger()
 ]
 
 const enhancer = compose(applyMiddleware(
   ...middleware
 ))
 
+const rootReducer = updaterToReducer(rootUpdater)
 const store = createStore(rootReducer, enhancer)
 
 export default store
 
 export const history = syncHistoryWithStore(browserHistory, store)
+
+function updaterToReducer (updater) {
+  return (state, action) => updater(action)(state)
+}
