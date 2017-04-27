@@ -3,23 +3,25 @@ import { routerActions } from 'react-router-redux'
 import { UserAuthWrapper } from 'redux-auth-wrapper'
 import React from 'react'
 
-import { getAccountData } from './account/getters'
 import { history } from './store'
 
-import UserIsAuthenticated from './account/hoc/userIsAuthenticated'
-import UserIsNotAuthenticated from './account/hoc/userIsNotAuthenticated'
+import UserIsAuthenticated from './authentication/hoc/userIsAuthenticated'
+import UserIsAuthenticatedOrHome from './authentication/hoc/userIsAuthenticatedOrHome'
+import UserIsNotAuthenticated from './authentication/hoc/userIsNotAuthenticated'
 // Top Level Containers
 import Layout from './layout/components/layout'
 import DogsContainer from './dogs/containers/dogs'
-import SignInContainer from './account/containers/signIn'
-import SignUpContainer from './account/containers/signUp'
+import SignInContainer from './authentication/containers/signIn'
+import SignOutContainer from './authentication/containers/signOut'
+import RegisterContainer from './authentication/containers/register'
 
 export default function ({ store }) {
   return <Router history={history}>
     <Route path='/' component={Layout}>
       <IndexRoute component={UserIsAuthenticated(DogsContainer)} />
-      <Route path='/login' component={UserIsNotAuthenticated(SignInContainer)} />
-      <Route path='/signup' component={UserIsNotAuthenticated(SignUpContainer)} />
+      <Route path='/sign-in' component={UserIsNotAuthenticated(SignInContainer)} />
+      <Route path='/sign-out' component={UserIsAuthenticatedOrHome(SignOutContainer)} />
+      <Route path='/register' component={UserIsNotAuthenticated(RegisterContainer)} />
     </Route>
   </Router>
 }

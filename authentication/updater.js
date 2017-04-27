@@ -2,11 +2,11 @@ import { updateStateAt, combine, withDefaultState, decorate } from 'redux-fp'
 
 const account = action => (state = {}) => {
   switch (action.type) {
-    case 'SIGN_UP_SUCCESS':
+    case 'REGISTER_SUCCESS':
       return action.payload
     case 'SIGN_IN_SUCCESS':
       return action.payload
-    case 'SIGN_OUT':
+    case 'SIGN_OUT_SUCCESS':
       return {}
     default:
       return state
@@ -26,25 +26,25 @@ const signingIn = action => (state = false) => {
   }
 }
 
-const signingUp = action => (state = false) => {
+const registering = action => (state = false) => {
   switch (action.type) {
-    case 'SIGN_UP_START':
+    case 'REGISTER_START':
       return true
-    case 'SIGN_UP_SUCCESS':
+    case 'REGISTER_SUCCESS':
       return false
-    case 'SIGN_UP_ERROR':
+    case 'REGISTER_ERROR':
       return false
     default:
       return state
   }
 }
 
-const error = action => (state = {}) => {
+const error = action => (state = null) => {
   switch (action.type) {
-    case 'SIGN_UP_START':
+    case 'REGISTER_START':
     case 'SIGN_IN_START':
-      return {}
-    case 'SIGN_UP_ERROR':
+      return null
+    case 'REGISTER_ERROR':
       console.error(action.payload)
       return action.payload
     case 'SIGN_IN_ERROR':
@@ -57,12 +57,12 @@ const error = action => (state = {}) => {
 
 export default decorate(
   withDefaultState({}),
-  updateStateAt('account'),
+  updateStateAt('authentication'),
   withDefaultState({}),
   combine({
     account,
     signingIn,
-    signingUp,
+    registering,
     error
   })
 )

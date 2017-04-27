@@ -3,9 +3,9 @@ import { createComponent } from 'react-fela'
 
 import styles from '../styles/layout'
 
-export default function Layout (props) {
-  const Container = createComponent(styles.container, 'div')
+const Container = createComponent(styles.container, 'div')
 
+export default function Layout (props) {
   return <Container>
     { props.children }
   </Container>

@@ -1,5 +1,4 @@
 import { createStore, applyMiddleware, compose } from 'redux'
-import thunk from 'redux-thunk'
 import { createEpicMiddleware } from 'redux-observable'
 import { createLogger } from 'redux-logger'
 import { routerReducer, syncHistoryWithStore, routerActions, routerMiddleware } from 'react-router-redux'
@@ -10,15 +9,15 @@ import rootUpdater from './updater'
 import rootEpic from './epic'
 
 const middleware = [
-  thunk.withExtraArgument(feathers),
+  noopMiddleware,
   createEpicMiddleware(rootEpic, { dependencies: { feathers } }),
   routerMiddleware(browserHistory),
   createLogger()
 ]
 
-const enhancer = compose(applyMiddleware(
-  ...middleware
-))
+const enhancer = compose(
+  applyMiddleware(...middleware)
+)
 
 const rootReducer = updaterToReducer(rootUpdater)
 const store = createStore(rootReducer, enhancer)
@@ -29,4 +28,13 @@ export const history = syncHistoryWithStore(browserHistory, store)
 
 function updaterToReducer (updater) {
   return (state, action) => updater(action)(state)
+}
+
+// sometimes it's helpful to emit an undefined action
+// specifically when using Rx.Observable.fromPromise
+// and you want to swallow an error.
+function noopMiddleware (store) {
+  return next => action => {
+    if (typeof action !== 'undefined') next(action)
+  }
 }

@@ -10,8 +10,8 @@ const jwt = require('feathers-authentication-jwt')
 
 const services = {
   dogs: require('./dogs/service'),
-  accounts: require('./account/service'),
-  agents: require('./agent/service')
+  accounts: require('./accounts/service'),
+  agents: require('./agents/service')
 }
 
 const authService = require('./authentication/service')
