@@ -6,7 +6,7 @@ export const signInStart = createAction('SIGN_IN_START')
 export const signInSuccess = createAction('SIGN_IN_SUCCESS')
 export const signInError = createAction('SIGN_IN_ERROR')
 
-export const signOut = createAction('SIGN_OUT')
+export const signOut = createAction('SIGN_OUT', undefined, metaCreator)
 export const signOutStart = createAction('SIGN_OUT_START')
 export const signOutSuccess = createAction('SIGN_OUT_SUCCESS')
 export const signOutError = createAction('SIGN_OUT_ERROR')

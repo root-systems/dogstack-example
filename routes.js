@@ -16,5 +16,5 @@ export default [
   <Route exact path='/' component={UserIsAuthenticated(DogsContainer)} />,
   <Route path='/sign-in' component={UserIsNotAuthenticated(SignInContainer)} />,
   <Route path='/sign-out' component={UserIsAuthenticatedOrHome(SignOutContainer)} />,
-  <Route path='/register' component={UserIsNotAuthenticated(RegisterContainer)} />,
+  <Route path='/register' component={UserIsNotAuthenticated(RegisterContainer)} />
 ]
