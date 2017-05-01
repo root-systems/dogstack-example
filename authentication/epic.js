@@ -22,14 +22,13 @@ function signInEpic (action$, store, { feathers }) {
       Rx.Observable.fromPromise(
         feathers.authenticate(action.payload)
           .then(signInSuccess)
-          .catch((err) => {
-            // if init signIn() fails, it's not an error
-            if (err.message === 'Could not find stored JWT and no authentication strategy was given') return
-            return signInError(err)
-          })
         )
-      )
-    )
+        .catch((err) => {
+          // if init signIn() fails, it's not an error
+          if (err.message === 'Could not find stored JWT and no authentication strategy was given') return Rx.Observable.empty()
+          return Rx.Observable.of(signInError(err))
+        })
+    ))
 }
 
 function signOutEpic (action$, store, { feathers }) {
@@ -41,8 +40,7 @@ function signOutEpic (action$, store, { feathers }) {
           .then(signOutSuccess)
           .catch(signOutError)
         )
-      )
-    )
+    ))
 }
 
 function registerEpic (action$, store, { feathers }) {
