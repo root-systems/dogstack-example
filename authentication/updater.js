@@ -3,7 +3,6 @@ import { updateStateAt, combine, withDefaultState, decorate } from 'redux-fp'
 const account = action => (state = {}) => {
   switch (action.type) {
     case 'REGISTER_SUCCESS':
-      return action.payload
     case 'SIGN_IN_SUCCESS':
       return action.payload
     case 'SIGN_OUT_SUCCESS':
@@ -13,12 +12,11 @@ const account = action => (state = {}) => {
   }
 }
 
-const signingIn = action => (state = false) => {
+const isSigningIn = action => (state = false) => {
   switch (action.type) {
     case 'SIGN_IN_START':
       return true
     case 'SIGN_IN_SUCCESS':
-      return false
     case 'SIGN_IN_ERROR':
       return false
     default:
@@ -26,12 +24,11 @@ const signingIn = action => (state = false) => {
   }
 }
 
-const registering = action => (state = false) => {
+const isRegistering = action => (state = false) => {
   switch (action.type) {
     case 'REGISTER_START':
       return true
     case 'REGISTER_SUCCESS':
-      return false
     case 'REGISTER_ERROR':
       return false
     default:
@@ -55,14 +52,19 @@ const error = action => (state = null) => {
   }
 }
 
-export default decorate(
-  withDefaultState({}),
-  updateStateAt('authentication'),
+export const localUpdater = decorate(
   withDefaultState({}),
   combine({
     account,
-    signingIn,
-    registering,
+    isSigningIn,
+    isRegistering,
     error
   })
 )
+
+export const globalDecorator = decorate(
+  withDefaultState({}),
+  updateStateAt('authentication'),
+  localUpdater
+)
+export default globalDecorator

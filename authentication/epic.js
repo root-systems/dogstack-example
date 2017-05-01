@@ -10,14 +10,14 @@ import {
 
 export default combineEpics(initEpic, signInEpic, signOutEpic, registerEpic)
 
-function initEpic () {
+export function initEpic () {
   return Rx.Observable.of(signIn())
     .delay(0) // apparently needs delay otherwise action lost
 }
 
-function signInEpic (action$, store, { feathers }) {
+export function signInEpic (action$, store, { feathers }) {
   return action$.ofType(signIn.type)
-    .mergeMap(action => Rx.Observable.merge(
+    .mergeMap(action => Rx.Observable.concat(
       Rx.Observable.of(signInStart()),
       Rx.Observable.fromPromise(
         feathers.authenticate(action.payload)
@@ -33,9 +33,9 @@ function signInEpic (action$, store, { feathers }) {
     ))
 }
 
-function signOutEpic (action$, store, { feathers }) {
+export function signOutEpic (action$, store, { feathers }) {
   return action$.ofType(signOut.type)
-    .mergeMap(action => Rx.Observable.merge(
+    .mergeMap(action => Rx.Observable.concat(
       Rx.Observable.of(signOutStart()),
       Rx.Observable.fromPromise(
         feathers.logout()
@@ -45,12 +45,12 @@ function signOutEpic (action$, store, { feathers }) {
     ))
 }
 
-function registerEpic (action$, store, { feathers }) {
+export function registerEpic (action$, store, deps) {
   return action$.ofType(register.type)
     .mergeMap(action => {
       const { cid } = action.meta
 
-      const createdSuccess$ = action$.ofType(accounts.set.type).filter(onlyCid).take(1)
+      const createdSuccess$ = action$.ofType(accounts.complete.type).filter(onlyCid).take(1)
       const createdError$ = action$.ofType(accounts.error.type).filter(onlyCid).take(1)
 
       return Rx.Observable.merge(
@@ -61,7 +61,7 @@ function registerEpic (action$, store, { feathers }) {
         createdSuccess$.mergeMap(created => {
           const { email, password } = action.payload
           return Rx.Observable.of(
-            registerSuccess(created.payload.data),
+            registerSuccess(),
             signIn({ strategy: 'local', email, password })
           )
         }),

@@ -1,4 +1,4 @@
-//const logDebug = require('pino-debug')
+// const logDebug = require('pino-debug')
 const Log = require('pino')
 const prettyStream = require('pino-colada')
 
@@ -14,6 +14,6 @@ if (pretty) {
 
 const log = Log({ name, level }, stream)
 
-//logDebug(log)
+// logDebug(log)
 
 module.exports = log
