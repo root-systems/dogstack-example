@@ -1,9 +1,9 @@
 import { UserAuthWrapper } from 'redux-auth-wrapper'
-import { getAccountData } from '../getters'
+import { getAccount } from '../getters'
 import { routerActions } from 'react-router-redux'
 
 export default UserAuthWrapper({
-  authSelector: getAccountData,
+  authSelector: getAccount,
   predicate: data => !data.accessToken,
   redirectAction: routerActions.replace, // the redux action to dispatch for redirect
   wrapperDisplayName: 'UserIsNotAuthenticated', // a nice name for this auth check

@@ -36,7 +36,7 @@ class Dogs extends React.Component {
       </div>
       <button
         className={styles.adoptButton}
-        onClick={() => this.createDog({ name: dogNames.allRandom() }) }
+        onClick={() => this.createDog({ name: dogNames.allRandom() })}
       >
         Adopt a dog!
       </button>
@@ -48,8 +48,9 @@ class Dogs extends React.Component {
       >
         Give a dog to a friend!
       </button>
-      <Link to='/signup'>Sign Up</Link>
-      <Link to='/signin'>Sign In</Link>
+      <Link to='/sign-in'>Sign In</Link>
+      <Link to='/sign-out'>Sign Out</Link>
+      <Link to='/register'>Register</Link>
     </div>
   }
 
