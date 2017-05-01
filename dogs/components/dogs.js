@@ -36,7 +36,7 @@ class Dogs extends React.Component {
       </div>
       <button
         className={styles.adoptButton}
-        onClick={() => this.createDog({ name: dogNames.allRandom() }) }
+        onClick={() => this.createDog({ name: dogNames.allRandom() })}
       >
         Adopt a dog!
       </button>

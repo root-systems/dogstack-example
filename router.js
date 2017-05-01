@@ -1,6 +1,4 @@
-import { Router, Route, IndexRoute, browserHistory } from 'react-router'
-import { routerActions } from 'react-router-redux'
-import { UserAuthWrapper } from 'redux-auth-wrapper'
+import { Router, Route, IndexRoute } from 'react-router'
 import React from 'react'
 
 import { history } from './store'

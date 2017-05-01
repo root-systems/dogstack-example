@@ -1,4 +1,3 @@
-const feathers = require('feathers')
 const bodyParser = require('body-parser')
 const hooks = require('feathers-hooks')
 const { forEachObjIndexed } = require('ramda')

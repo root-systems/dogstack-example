@@ -2,7 +2,6 @@
 // because `https://github.com/pinojs/pino-debug#programmatic`
 const log = require('./log')
 
-const http = require('http')
 const debug = require('debug')('example')
 
 const db = require('./db') // knex instance
@@ -61,12 +60,10 @@ function onError (error) {
   switch (error.code) {
     case 'EACCES':
       console.error(bind + ' requires elevated privileges')
-      process.exit(1)
-      break
+      return process.exit(1)
     case 'EADDRINUSE':
       console.error(bind + ' is already in use')
-      process.exit(1)
-      break
+      return process.exit(1)
     default:
       throw error
   }

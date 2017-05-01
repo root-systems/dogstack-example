@@ -34,10 +34,13 @@ function signInEpic (action$, store, { feathers }) {
 
 function signOutEpic (action$, store, { feathers }) {
   return action$.ofType(signOut.type)
-    .mergeMap(action => Rx.Observable.fromPromise(
-      feathers.logout()
-        .then(signOutSuccess)
-        .catch(signOutError)
+    .mergeMap(action => Rx.Observable.merge(
+      Rx.Observable.of(signInStart()),
+      Rx.Observable.fromPromise(
+        feathers.logout()
+          .then(signOutSuccess)
+          .catch(signOutError)
+        )
       )
     )
 }

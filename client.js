@@ -1,3 +1,4 @@
+/* global Primus */
 import feathers from 'feathers/client'
 import primus from 'feathers-primus/client'
 import hooks from 'feathers-hooks'
