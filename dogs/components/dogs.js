@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 import { connect as connectFela } from 'react-fela'
 import dogNames from 'dog-names'
 import { mapObjIndexed, values, keys, pipe} from 'ramda'
