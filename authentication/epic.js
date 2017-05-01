@@ -23,6 +23,8 @@ function signInEpic (action$, store, { feathers }) {
         feathers.authenticate(action.payload)
           .then(signInSuccess)
         )
+        // can't swallow error as part of promise chain
+        // because we want to not emit an action, rather than undefined.
         .catch((err) => {
           // if init signIn() fails, it's not an error
           if (err.message === 'Could not find stored JWT and no authentication strategy was given') return Rx.Observable.empty()
@@ -34,7 +36,7 @@ function signInEpic (action$, store, { feathers }) {
 function signOutEpic (action$, store, { feathers }) {
   return action$.ofType(signOut.type)
     .mergeMap(action => Rx.Observable.merge(
-      Rx.Observable.of(signInStart()),
+      Rx.Observable.of(signOutStart()),
       Rx.Observable.fromPromise(
         feathers.logout()
           .then(signOutSuccess)

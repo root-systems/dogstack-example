@@ -1,12 +1,10 @@
-import { UserAuthWrapper } from 'redux-auth-wrapper'
+import { connectedRouterRedirect } from 'redux-auth-wrapper/lib/history4/redirect'
 import { getAccount } from '../getters'
-import { routerActions } from 'react-router-redux'
 
-export default UserAuthWrapper({
+export default connectedRouterRedirect({
+  wrapperDisplayName: 'UserIsAuthenticated',
   authSelector: getAccount,
   predicate: data => !!data.accessToken,
-  failureRedirectPath: '/sign-in',
-  redirectAction: routerActions.replace, // the redux action to dispatch for redirect
-  wrapperDisplayName: 'UserIsAuthenticated', // a nice name for this auth check
+  redirectPath: '/sign-in',
   allowRedirectBack: true
 })

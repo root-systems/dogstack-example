@@ -2,22 +2,26 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider as ReduxProvider } from 'react-redux'
 import { Provider as FelaProvider } from 'react-fela'
-import { browserHistory } from 'react-router'
-import { syncHistoryWithStore } from 'react-router-redux'
+import { ConnectedRouter } from 'react-router-redux'
+import createBrowserHistory from 'history/createBrowserHistory'
 
-import store from './store'
+import configureStore from './store'
 import createRenderer from './renderer'
-import Router from './router'
+import routes from './routes'
+import Layout from './layout/components/layout'
 
 document.addEventListener('DOMContentLoaded', () => {
-  const history = syncHistoryWithStore(browserHistory, store)
+  const history = createBrowserHistory()
+  const store = configureStore({ history })
   const renderer = createRenderer(document.getElementById('app-fonts'))
   const mountNode = document.getElementById('app-styles')
 
   ReactDOM.render(
     <ReduxProvider store={store}>
       <FelaProvider renderer={renderer} mountNode={mountNode}>
-        <Router history={history} store={store} />
+        <ConnectedRouter history={history}>
+          <Layout routes={routes} />
+        </ConnectedRouter>
       </FelaProvider>
     </ReduxProvider>,
     document.querySelector('#app')

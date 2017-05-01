@@ -1,12 +1,14 @@
-import { UserAuthWrapper } from 'redux-auth-wrapper'
-import { getAccount } from '../getters'
-import { routerActions } from 'react-router-redux'
+import locationHelperBuilder from 'redux-auth-wrapper/lib/history4/locationHelper'
+import { connectedRouterRedirect } from 'redux-auth-wrapper/lib/history4/redirect'
 
-export default UserAuthWrapper({
+import { getAccount } from '../getters'
+
+const locationHelper = locationHelperBuilder({})
+
+export default connectedRouterRedirect({
+  wrapperDisplayName: 'UserIsAuthenticatedOrHome',
   authSelector: getAccount,
   predicate: data => !!data.accessToken,
-  failureRedirectPath: '/',
-  redirectAction: routerActions.replace, // the redux action to dispatch for redirect
-  wrapperDisplayName: 'UserIsAuthenticatedOrHome',
+  redirectPath: '/',
   allowRedirectBack: false
 })

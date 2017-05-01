@@ -16,7 +16,7 @@ const client = feathers()
   .configure(rx(Rx))
   .configure(auth({
     storage: localStorage,
-    accessTokenKey: '41S'
+    accessTokenKey: 'dogstack'
   }))
 
 export default client

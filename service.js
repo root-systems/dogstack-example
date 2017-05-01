@@ -1,6 +1,6 @@
+const { forEachObjIndexed } = require('ramda')
 const bodyParser = require('body-parser')
 const hooks = require('feathers-hooks')
-const { forEachObjIndexed } = require('ramda')
 const primus = require('feathers-primus')
 const configuration = require('feathers-configuration')
 const authentication = require('feathers-authentication')
@@ -26,7 +26,7 @@ module.exports = function (db) {
 
     app.configure(hooks())
     app.configure(primus({
-      transformer: 'uws'
+      transformer: 'websockets'
     }))
 
     // services
