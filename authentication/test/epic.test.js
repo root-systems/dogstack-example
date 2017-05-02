@@ -51,19 +51,22 @@ test('register dispatches registerStart and accounts.create action', function (t
 test('register happy path dispatches registerSuccess and signIn', function (t) {
   t.plan(3)
   var i = 0
-  var account = {}
+  var account = {
+    id: Symbol('account')
+  }
   const registerAction = register(account)
   const { cid } = registerAction.meta // SMELL
   const action$ = ActionsObservable.from(
     Observable.create(observer => {
       observer.next(registerAction)
+      observer.next(accountActions.set(cid, account.id, account))
       observer.next(accountActions.complete(cid))
       observer.complete()
     }),
     Scheduler.async
   )
   const expectedActions = [
-    registerSuccess(),
+    registerSuccess(account),
     // SMELL we should be able to pass in a cid to signIn
     // signIn(cid, account)
   ]
