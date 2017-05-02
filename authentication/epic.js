@@ -52,16 +52,20 @@ export function registerEpic (action$, store, deps) {
 
       const createdSuccess$ = action$.ofType(accounts.complete.type).filter(onlyCid).take(1)
       const createdError$ = action$.ofType(accounts.error.type).filter(onlyCid).take(1)
+      // get only the last set item, since it should be the latest
+      const createdSet$ = action$.ofType(accounts.set.type).filter(onlyCid)
 
       return Rx.Observable.merge(
         Rx.Observable.of(
           registerStart(),
           accounts.create(action.meta.cid, action.payload)
         ),
-        createdSuccess$.mergeMap(created => {
+        createdSuccess$
+        .withLatestFrom(createdSet$, (success, set) => set.payload.data)
+        .mergeMap(created => {
           const { email, password } = action.payload
           return Rx.Observable.of(
-            registerSuccess(),
+            registerSuccess(created),
             signIn({ strategy: 'local', email, password })
           )
         }),
