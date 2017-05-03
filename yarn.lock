@@ -2105,9 +2105,9 @@ dog-names@^1.0.2:
     meow "^3.0.0"
     unique-random-array "^1.0.0"
 
-dogstack@enspiral-root-systems/dogstack#cli:
-  version "0.0.5"
-  resolved "https://codeload.github.com/enspiral-root-systems/dogstack/tar.gz/96b5e20fc73a0577019f059a3bdf3714756e09b5"
+dogstack@0.1:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/dogstack/-/dogstack-0.1.0.tgz#ef7da0ca5fa96d96d1b64c16b8577500473e6cb0"
   dependencies:
     ava "github:ahdinosaur/ava#cli-options"
     babel-register "^6.24.1"
