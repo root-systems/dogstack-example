@@ -4,24 +4,17 @@
   "description": "example dogstack full-stack app",
   "main": "index.js",
   "scripts": {
-    "start": "node ./index.js",
-    "dev": "NODE_ENV=development node-dev ./index.js",
-    "test": "ava",
-    "db:migrate:latest": "NODE_ENV=development knex migrate:latest --knexfile db/knexfile.js",
-    "db:migrate:rollback": "NODE_ENV=development knex migrate:rollback --knexfile db/knexfile.js",
-    "db:seed": "NODE_ENV=development knex seed:run --knexfile db/knexfile.js"
+    "start": "dog server",
+    "dev": "dog dev server",
+    "lint": "dog lint",
+    "test": "dog test",
+    "db": "dog db"
   },
   "author": "iainkirkpatrick",
   "license": "ISC",
   "browserify": {
     "transform": [
       "babelify"
-    ]
-  },
-  "ava": {
-    "babel": "inherit",
-    "require": [
-      "babel-register"
     ]
   },
   "babel": {
@@ -36,10 +29,10 @@
   "dependencies": {
     "@f/create-action": "^1.1.1",
     "babel-plugin-ramda": "^1.2.0",
-    "babel-register": "^6.24.1",
     "body-parser": "^1.17.1",
     "cuid": "^1.3.8",
     "dog-names": "^1.0.2",
+    "dogstack": "0.1",
     "feathers": "^2.1.1",
     "feathers-action": "^2.2.0",
     "feathers-authentication": "^1.2.2",
@@ -62,11 +55,7 @@
     "fela-plugin-unit": "^4.3.2",
     "fela-plugin-validator": "^4.3.2",
     "history": "^4.6.1",
-    "knex": "^0.12.9",
     "pg": "^6.1.5",
-    "pino": "^4.2.4",
-    "pino-colada": "^1.3.1",
-    "pino-debug": "^1.0.3",
     "pino-http": "^2.6.0",
     "pump": "^1.0.2",
     "ramda": "^0.23.0",
@@ -93,7 +82,6 @@
   },
   "devDependencies": {
     "accepts": "^1.3.3",
-    "ava": "^0.19.1",
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-react": "^6.5.0",
     "babelify": "^7.3.0",
