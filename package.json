@@ -43,6 +43,7 @@
     "feathers-configuration": "^0.4.1",
     "feathers-errors": "^2.6.2",
     "feathers-hooks": "^2.0.1",
+    "feathers-hooks-common": "^3.0.0",
     "feathers-knex": "^2.6.3",
     "feathers-primus": "^2.1.0",
     "feathers-reactive": "^0.4.1",
