@@ -2,6 +2,7 @@ const feathersKnex = require('feathers-knex')
 const hooks = require('feathers-hooks')
 const hashPassword = require('feathers-authentication-local').hooks.hashPassword
 const auth = require('feathers-authentication').hooks
+const { isProvider: isTransport, iff, discard } = require('feathers-hooks-common')
 
 module.exports = function (db) {
   return feathersKnex({
@@ -11,6 +12,9 @@ module.exports = function (db) {
 }
 
 module.exports.before = {
+  all: [
+    iff(isTransport('external'), discard('password'))
+  ],
   create: [
     hashPassword(),
     createAgent
