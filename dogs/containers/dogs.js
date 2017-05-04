@@ -1,17 +1,16 @@
-import { connect as connectRedux } from 'react-redux'
+import { connectFeathers } from '../../lib/feathers-action-react'
 
 import Dogs from '../components/dogs'
 
-import { actions } from '../'
+import { actions as dogActions } from '../'
 
 import { getIndexProps } from '../getters'
 
-export default connectRedux(
-  getIndexProps,
-  {
-    createDog: actions.create,
-    findDogs: actions.find,
-    updateDog: actions.update,
-    removeDog: actions.remove
-  }
-)(Dogs)
+export default connectFeathers({
+  selector: getIndexProps,
+  actions: { dogs: dogActions },
+  query: (props) => [{
+    resource: 'dogs',
+    params: {}
+  }]
+})(Dogs)

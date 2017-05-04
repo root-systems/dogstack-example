@@ -16,18 +16,9 @@ const mapDogs = mapObjIndexed((dog, key) => {
 const mapDogsToValues = pipe(mapDogs, values)
 
 class Dogs extends React.Component {
-  constructor (...args) {
-    super(...args)
-    this.createDog = this.createDog.bind(this)
-    this.removeDog = this.removeDog.bind(this)
-  }
-  componentDidMount () {
-    const cid = createCid()
-    this.props.findDogs(cid)
-  }
-
   render () {
-    const { styles, dogs } = this.props
+    const { styles, dogs, actions } = this.props
+    const { create, remove } = actions.dogs
 
     return <div className={styles.container}>
       <span>MY DOGS</span>
@@ -36,14 +27,14 @@ class Dogs extends React.Component {
       </div>
       <button
         className={styles.adoptButton}
-        onClick={() => this.createDog({ name: dogNames.allRandom() })}
+        onClick={() => create({ name: dogNames.allRandom() })}
       >
         Adopt a dog!
       </button>
       <button
         className={styles.adoptButton}
         onClick={() => {
-          this.removeDog(keys(dogs)[0])
+          remove(keys(dogs)[0])
         }}
       >
         Give a dog to a friend!
@@ -52,16 +43,6 @@ class Dogs extends React.Component {
       <Link to='/sign-out'>Sign Out</Link>
       <Link to='/register'>Register</Link>
     </div>
-  }
-
-  createDog (dog) {
-    const cid = createCid()
-    this.props.createDog(cid, dog)
-  }
-
-  removeDog (id) {
-    const cid = createCid()
-    this.props.removeDog(cid, id)
   }
 }
 
