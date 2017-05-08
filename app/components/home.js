@@ -1,14 +1,14 @@
 import React from 'react'
 import { createComponent } from 'react-fela'
-import { Switch } from 'react-router'
 
-import styles from '../styles/layout'
+import styles from '../styles/home'
 
 const Container = createComponent(styles.container, 'div')
 
-export default function Layout (props) {
+export default function Home (props) {
   const { routes } = props
+
   return <Container>
-    <Switch children={routes} />
+    dogstack!
   </Container>
 }

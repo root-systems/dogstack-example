@@ -6,15 +6,38 @@ import UserIsAuthenticatedOrHome from './authentication/hoc/userIsAuthenticatedO
 import UserIsNotAuthenticated from './authentication/hoc/userIsNotAuthenticated'
 
 // Top Level Containers
-import Layout from './layout/components/layout'
+import Home from './app/containers/home'
 import DogsContainer from './dogs/containers/dogs'
 import SignInContainer from './authentication/containers/signIn'
 import SignOutContainer from './authentication/containers/signOut'
 import RegisterContainer from './authentication/containers/register'
 
 export default [
-  <Route exact path='/' component={UserIsAuthenticated(DogsContainer)} />,
-  <Route path='/sign-in' component={UserIsNotAuthenticated(SignInContainer)} />,
-  <Route path='/sign-out' component={UserIsAuthenticatedOrHome(SignOutContainer)} />,
-  <Route path='/register' component={UserIsNotAuthenticated(RegisterContainer)} />
+  {
+    path: '/',
+    exact: true,
+    Component: Home
+  },
+  {
+    path: '/sign-in',
+    Component: UserIsNotAuthenticated(SignInContainer)
+  },
+  {
+    path: '/sign-out',
+    Component: UserIsAuthenticatedOrHome(SignOutContainer)
+  },
+  {
+    path: '/register',
+    Component: UserIsNotAuthenticated(RegisterContainer)
+  },
+  {
+    path: '/dogs',
+    Component: UserIsAuthenticated(DogsContainer)
+  },
+  /*
+  {
+    path: '/dog',
+    Component: UserIsAuthenticated(DogContainer)
+  }
+  */
 ]

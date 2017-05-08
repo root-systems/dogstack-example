@@ -8,7 +8,7 @@ import createBrowserHistory from 'history/createBrowserHistory'
 import configureStore from './store'
 import createRenderer from './renderer'
 import routes from './routes'
-import Layout from './layout/components/layout'
+import Layout from './app/components/layout'
 
 document.addEventListener('DOMContentLoaded', () => {
   const history = createBrowserHistory()

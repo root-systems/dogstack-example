@@ -21,10 +21,7 @@ class Dogs extends React.Component {
     const { create, remove } = actions.dogs
 
     return <div className={styles.container}>
-      <span>MY DOGS</span>
-      <div className={styles.dogsContainer}>
-        {mapDogsToValues(dogs)}
-      </div>
+      <h1>MY DOGS</h1>
       <button
         className={styles.adoptButton}
         onClick={() => create({ name: dogNames.allRandom() })}
@@ -39,9 +36,9 @@ class Dogs extends React.Component {
       >
         Give a dog to a friend!
       </button>
-      <Link to='/sign-in'>Sign In</Link>
-      <Link to='/sign-out'>Sign Out</Link>
-      <Link to='/register'>Register</Link>
+      <div className={styles.dogsContainer}>
+        {mapDogsToValues(dogs)}
+      </div>
     </div>
   }
 }
