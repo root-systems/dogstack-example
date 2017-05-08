@@ -35,6 +35,7 @@
     "dogstack": "0.1",
     "feathers": "^2.1.1",
     "feathers-action": "^2.2.0",
+    "feathers-action-react": "^1.0.0",
     "feathers-authentication": "^1.2.2",
     "feathers-authentication-client": "^0.3.2",
     "feathers-authentication-hooks": "^0.1.2",
