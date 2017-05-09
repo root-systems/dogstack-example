@@ -1,12 +1,12 @@
 import { updateStateAt, combine, withDefaultState, decorate } from 'redux-fp'
 
-const account = action => (state = {}) => {
+const account = action => (state = null) => {
   switch (action.type) {
     case 'REGISTER_SUCCESS':
     case 'SIGN_IN_SUCCESS':
       return action.payload
     case 'SIGN_OUT_SUCCESS':
-      return {}
+      return null
     default:
       return state
   }

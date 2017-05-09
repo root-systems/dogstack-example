@@ -8,25 +8,26 @@ import styles from '../styles/nav'
 const Container = createComponent(styles.container, 'nav')
 
 export default function Nav (props) {
-  const { routes } = props
+  const { navigationRoutes } = props
 
   return <Container>
-    {mapRouteLinks(routes)}
+    {mapRouteLinks(navigationRoutes)}
   </Container>
 }
 
-const mapRouteLinks = map(route => {
-  const {
-    path,
-    Component
-  } = route
+const mapRouteLinks = pipe(
+  map(route => {
+    const {
+      path,
+      name = path,
+      Component
+    } = route
 
-  const name = path
-  const key = path || '404'
-
-  return (
-    <NavLink to={path} key={key}>
-      {name}
-    </NavLink>
-  )
-})
+    return (
+      <NavLink to={path} key={name}>
+        {name}
+      </NavLink>
+    )
+  }),
+  values
+)

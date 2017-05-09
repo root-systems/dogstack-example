@@ -12,32 +12,62 @@ import SignInContainer from './authentication/containers/signIn'
 import SignOutContainer from './authentication/containers/signOut'
 import RegisterContainer from './authentication/containers/register'
 
+import { getIsAuthenticated, getIsNotAuthenticated } from './authentication/getters'
+
 export default [
   {
+    name: 'home',
     path: '/',
     exact: true,
-    Component: Home
+    Component: Home,
+    navigation: {
+      title: 'Sign in'
+    }
   },
   {
+    name: 'sign-in',
     path: '/sign-in',
-    Component: UserIsNotAuthenticated(SignInContainer)
+    Component: UserIsNotAuthenticated(SignInContainer),
+    navigation: {
+      title: 'Sign in',
+      selector: getIsNotAuthenticated
+    }
   },
   {
+    name: 'sign-out',
     path: '/sign-out',
-    Component: UserIsAuthenticatedOrHome(SignOutContainer)
+    Component: UserIsAuthenticatedOrHome(SignOutContainer),
+    navigation: {
+      title: 'Sign out',
+      selector: getIsAuthenticated
+    }
   },
   {
+    name: 'register',
     path: '/register',
-    Component: UserIsNotAuthenticated(RegisterContainer)
+    Component: UserIsNotAuthenticated(RegisterContainer),
+    navigation: {
+      title: 'Register',
+      selector: getIsNotAuthenticated
+    }
   },
   {
+    name: 'dogs',
     path: '/dogs',
-    Component: UserIsAuthenticated(DogsContainer)
+    Component: UserIsAuthenticated(DogsContainer),
+    navigation: {
+      title: 'Dogs',
+      selector: getIsAuthenticated
+    }
   },
   /*
   {
     path: '/dog',
-    Component: UserIsAuthenticated(DogContainer)
+    Component: UserIsAuthenticated(DogContainer),
+    navigation: {
+      title: 'Dog',
+      selector: getIsAuthenticated
+    }
   }
   */
 ]

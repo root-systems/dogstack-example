@@ -10,11 +10,11 @@ import Nav from './nav'
 const Container = createComponent(styles.container, 'div')
 
 export default function Layout (props) {
-  const { routes } = props
+  const { routes, navigationRoutes } = props
   const pages = mapRoutePages(routes)
 
   return <Container>
-    <Nav routes={routes} />
+    <Nav navigationRoutes={navigationRoutes} />
     <Switch>
       {pages}
     </Switch>
