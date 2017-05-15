@@ -1,17 +1,14 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { connect as connectFela } from 'react-fela'
+import { connect as connectStyles } from 'react-fela'
 import dogNames from 'dog-names'
 import { mapObjIndexed, values, keys, pipe} from 'ramda'
-import createCid from 'cuid'
 
 import Dog from './dog'
 
-import gcs from '../util/generate-component-styles'
 import styles from '../styles/dogs'
 
 const mapDogs = mapObjIndexed((dog, key) => {
-  return <Dog key={key} name={dog.name} />
+  return <Dog key={key} dog={dog} size='small' />
 })
 const mapDogsToValues = pipe(mapDogs, values)
 
@@ -21,10 +18,7 @@ class Dogs extends React.Component {
     const { create, remove } = actions.dogs
 
     return <div className={styles.container}>
-      <span>MY DOGS</span>
-      <div className={styles.dogsContainer}>
-        {mapDogsToValues(dogs)}
-      </div>
+      <h1 className={styles.title}>MY DOGS</h1>
       <button
         className={styles.adoptButton}
         onClick={() => create({ name: dogNames.allRandom() })}
@@ -39,13 +33,11 @@ class Dogs extends React.Component {
       >
         Give a dog to a friend!
       </button>
-      <Link to='/sign-in'>Sign In</Link>
-      <Link to='/sign-out'>Sign Out</Link>
-      <Link to='/register'>Register</Link>
+      <div className={styles.dogsContainer}>
+        {mapDogsToValues(dogs)}
+      </div>
     </div>
   }
 }
 
-export default connectFela(
-  gcs(styles)
-)(Dogs)
+export default connectStyles(styles)(Dogs)

@@ -1,20 +1,36 @@
 import { createSelector, createStructuredSelector } from 'reselect'
+import { prop, propOr, not } from 'ramda'
 
-export const getAuthentication = (state) => state.authentication
+export const getAuthentication = prop('authentication')
 
 export const getSigningIn = createSelector(
   getAuthentication,
-  (authentication) => authentication.signingIn
+  propOr(false, 'signingIn')
 )
 
 export const getAccount = createSelector(
   getAuthentication,
-  (authentication) => authentication.account
+  propOr(null, 'account')
+)
+
+export const getAccessToken = createSelector(
+  getAccount,
+  propOr(null, 'accessToken')
+)
+
+export const getIsAuthenticated = createSelector(
+  getAccount,
+  Boolean
+)
+
+export const getIsNotAuthenticated = createSelector(
+  getAccount,
+  not
 )
 
 export const getError = createSelector(
   getAuthentication,
-  (authentication) => authentication.error
+  propOr(null, 'error')
 )
 
 export const getSignInProps = createStructuredSelector({

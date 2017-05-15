@@ -128,6 +128,13 @@ ajv@^4.7.0, ajv@^4.9.1:
     co "^4.6.0"
     json-stable-stringify "^1.0.1"
 
+ajv@^5.0.0:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/ajv/-/ajv-5.0.1.tgz#5fd1a8f5cc92b371aa86445b1152fd4dec844ac9"
+  dependencies:
+    co "^4.6.0"
+    json-stable-stringify "^1.0.1"
+
 align-text@^0.1.1, align-text@^0.1.3:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/align-text/-/align-text-0.1.4.tgz#0cd90a561093f35d0a99256c22b7069433fad117"
@@ -2668,9 +2675,34 @@ feathers-action-react@^1.0.0:
     react-redux "^5.0.4"
     redux "^3.6.0"
 
+feathers-action-react@ahdinosaur/feathers-action-react#cancel:
+  version "1.0.0"
+  resolved "https://codeload.github.com/ahdinosaur/feathers-action-react/tar.gz/1691f9bc696a4b5ca17a560723a022097bdfd036"
+  dependencies:
+    babel-preset-es2015 "^6.24.1"
+    babel-preset-react "^6.24.1"
+    babelify "^7.3.0"
+    incremental-id "^1.0.0"
+    ramda "^0.23.0"
+    react "^15.5.4"
+    react-redux "^5.0.4"
+    redux "^3.6.0"
+
 feathers-action@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/feathers-action/-/feathers-action-2.2.0.tgz#12d649c785afca68860d9128959fb9d0a1bb9978"
+  dependencies:
+    "@f/create-action" "^1.1.1"
+    es2040 "^1.2.5"
+    ramda "^0.23.0"
+    redux-fp "^0.2.0"
+    redux-observable "^0.14.1"
+    rxjs "^5.3.0"
+    typeof-is "^1.0.2"
+
+feathers-action@ahdinosaur/feathers-action#internal:
+  version "2.2.0"
+  resolved "https://codeload.github.com/ahdinosaur/feathers-action/tar.gz/a492732d9a23178a988d5627f2aef936c9e41bb3"
   dependencies:
     "@f/create-action" "^1.1.1"
     es2040 "^1.2.5"
@@ -2754,6 +2786,15 @@ feathers-errors@^2.0.1, feathers-errors@^2.2.0, feathers-errors@^2.4.0, feathers
   resolved "https://registry.yarnpkg.com/feathers-errors/-/feathers-errors-2.6.3.tgz#607f18df059b9aef7bc7cfddf0c90d6faec8d7ae"
   dependencies:
     debug "^2.2.0"
+
+feathers-hooks-common@^3.0.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/feathers-hooks-common/-/feathers-hooks-common-3.2.0.tgz#20b51d11b0924bdf0e89145f8ef7892455fb8f33"
+  dependencies:
+    ajv "^5.0.0"
+    debug "^2.2.0"
+    feathers-errors "^2.4.0"
+    traverse "^0.6.6"
 
 feathers-hooks@^2.0.1:
   version "2.0.1"
@@ -5127,7 +5168,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@15.5.8, prop-types@^15.0.0, prop-types@^15.5.4, prop-types@^15.5.6, prop-types@^15.5.7, prop-types@~15.5.7:
+prop-types@15.5.8, prop-types@^15.0.0, prop-types@^15.5.4, prop-types@^15.5.6, prop-types@^15.5.7, prop-types@^15.5.8, prop-types@~15.5.7:
   version "15.5.8"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.5.8.tgz#6b7b2e141083be38c8595aa51fc55775c7199394"
   dependencies:
@@ -5250,9 +5291,11 @@ react-dom@^15.1.0:
     object-assign "^4.1.0"
     prop-types "~15.5.7"
 
-react-fela@^4.3.2:
-  version "4.3.2"
-  resolved "https://registry.yarnpkg.com/react-fela/-/react-fela-4.3.2.tgz#12703afceacca43fb8dcb093917ba6793a5d149e"
+react-fela@^4.3.5:
+  version "4.3.5"
+  resolved "https://registry.yarnpkg.com/react-fela/-/react-fela-4.3.5.tgz#f7d3bed97bcc45915d269ff5238e2bfadd9c02f2"
+  dependencies:
+    prop-types "^15.5.8"
 
 react-redux@^4.4.5:
   version "4.4.8"
@@ -6228,6 +6271,10 @@ tough-cookie@~2.3.0:
   resolved "https://registry.yarnpkg.com/tough-cookie/-/tough-cookie-2.3.2.tgz#f081f76e4c85720e6c37a5faced737150d84072a"
   dependencies:
     punycode "^1.4.1"
+
+traverse@^0.6.6:
+  version "0.6.6"
+  resolved "https://registry.yarnpkg.com/traverse/-/traverse-0.6.6.tgz#cbdf560fd7b9af632502fed40f918c157ea97137"
 
 trim-newlines@^1.0.0:
   version "1.0.0"
