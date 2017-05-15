@@ -5538,7 +5538,7 @@ redux-fp@^0.2.0:
   dependencies:
     in-publish "^2.0.0"
 
-redux-logger@^3.0.0:
+redux-logger@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/redux-logger/-/redux-logger-3.0.1.tgz#ae8ae4c3c55ed3dd7aa31509f0856c5d3751057a"
   dependencies:

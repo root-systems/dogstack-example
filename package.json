@@ -96,7 +96,7 @@
     "morgan": "^1.8.1",
     "node-dev": "^3.1.3",
     "pump": "^1.0.2",
-    "redux-logger": "^3.0.0",
+    "redux-logger": "^3.0.1",
     "sqlite3": "^3.1.8",
     "tiny-lr": "^1.0.3",
     "watchify-middleware": "^1.6.0"
