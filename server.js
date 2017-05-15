@@ -74,7 +74,9 @@ function Bundler (options) {
       res.send(value)
     } else {
       // is stream
-      pump(value, res, next)
+      pump(value, res, err => {
+        if (err) next(err)
+      })
     }
   }
 }
