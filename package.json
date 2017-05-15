@@ -79,7 +79,7 @@
     "tcomb": "^3.2.20",
     "tcomb-form": "^0.9.16",
     "typeof-is": "^1.0.2",
-    "uify-server": "^1.0.3",
+    "uify-server": "^1.0.4",
     "ws": "^2.3.1"
   },
   "devDependencies": {
