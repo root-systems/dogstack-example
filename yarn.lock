@@ -2880,6 +2880,12 @@ fela-plugin-validator@^4.3.2:
   version "4.3.2"
   resolved "https://registry.yarnpkg.com/fela-plugin-validator/-/fela-plugin-validator-4.3.2.tgz#491f52c0e94cd36c4dccc04013a5ee286e0963ff"
 
+fela@^4.3.5:
+  version "4.3.5"
+  resolved "https://registry.yarnpkg.com/fela/-/fela-4.3.5.tgz#dbafc23e24c330a81b4788c2fe1a9442435e2c3c"
+  dependencies:
+    css-in-js-utils "^1.0.3"
+
 figures@^1.3.5:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/figures/-/figures-1.7.0.tgz#cbe1e3affcf1cd44b80cadfed28dc793a9701d2e"
