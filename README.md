@@ -1,20 +1,45 @@
-<h1 align="center">
-  <img
-    alt="dogstack on a post-it note"
-    src="http://i.imgur.com/vjfouxn.jpg"
-    height="250"
-  />
-  <br />
-  dogstack
-</h1>
+# dogstack-example
 
-<h4 align="center">
-  :dog: :dog: :dog: a popular-choice grab-bag framework for teams working on production web apps
-</h4>
+an example app using the [dogstack framework](https://dogstack.js.org). :dog: :dog: :dog:
 
-<h6 align="center">
-  :cat: see also <a href='https://github.com/enspiral-root-systems/cat-stack'>catstack</a>, dogstack's smarter, slimmer, more cunning partner in crime
-</h4>
+TODO see it live at [dogstack.herokuapp.com](https://dogstack.herokuapp.com/)
+
+## how to use
+
+if you want to use this as a starting ground for your new app, simply fork this repository!
+
+if you want to develop this example further,
+
+```
+git clone git@github.com:dogstack/dogstack-example
+cd dogstack-example
+yarn install
+yarn dev
+```
+
+### use forked version of `fela`
+
+at the moment this example relies on [fela#260](https://github.com/rofrischmann/fela/pull/260)
+
+```shell
+cd ../
+git clone git@github:ahdinosaur/fela
+cd fela
+git checkout build
+cd packages/fela
+npm link
+cd ../..
+cd packages/react-fela
+npm link
+
+cd ../dogstack-example
+npm link fela
+npm link react-fela
+```
+
+## user stories
+
+TODO
 
 -> make topic called agent
 -> agent is an id that links to other foreign objects
@@ -24,25 +49,3 @@ account is a way of logging in
 agent has one profile
 agent has and belongs to many relationships
 
-## features
-
-- provides generators for scaffolding apps made of popular libraries
-- abstracts away the app plumbing that you don't want to write again, and let's you focus on features
-
-## demos
-
-- [dogstack.herokuapp.com](https://dogstack.herokuapp.com/): this repo's [./example](example) deployed to heroku
-
-## modules
-
-- React
-- Redux
-- React Router
-- Reselect
-
-## prior art
-
-- architecture by [@ahdinosaur](https://github.com/ahdinosaur) on previous private projects
-- https://github.com/jlongster/react-redux-universal-hot-example
-- https://github.com/react-boilerplate/react-boilerplate
-- general discussions with teammates
