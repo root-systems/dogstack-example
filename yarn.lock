@@ -6546,9 +6546,9 @@ uid2@0.0.3:
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/uid2/-/uid2-0.0.3.tgz#483126e11774df2f71b8b639dcd799c376162b82"
 
-uify-server@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/uify-server/-/uify-server-1.1.1.tgz#8021c2c6d42d2c85ff32b60b1a09cc98b7988006"
+uify-server@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/uify-server/-/uify-server-1.1.3.tgz#c094874b8df42eb1f3c28c098ef6fae518abc781"
   dependencies:
     accepts "^1.3.3"
     bl "^1.2.0"
