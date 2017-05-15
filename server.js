@@ -8,6 +8,10 @@ const typeofIs = require('typeof-is')
 
 const Service = require('./service')
 
+if (process.env.NODE_ENV === 'development') {
+  require('longjohn')
+}
+
 module.exports = function (options) {
   const { db, log } = options
 
