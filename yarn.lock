@@ -2754,9 +2754,9 @@ feathers-action-react@ahdinosaur/feathers-action-react#cancel:
     react-redux "^5.0.4"
     redux "^3.6.0"
 
-feathers-action@ahdinosaur/feathers-action#internal:
+feathers-action@^2.2.0:
   version "2.2.0"
-  resolved "https://codeload.github.com/ahdinosaur/feathers-action/tar.gz/a492732d9a23178a988d5627f2aef936c9e41bb3"
+  resolved "https://registry.yarnpkg.com/feathers-action/-/feathers-action-2.2.0.tgz#12d649c785afca68860d9128959fb9d0a1bb9978"
   dependencies:
     "@f/create-action" "^1.1.1"
     es2040 "^1.2.5"
