@@ -2,6 +2,8 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import { createEpicMiddleware } from 'redux-observable'
 import { ConnectedRouter, routerMiddleware } from 'react-router-redux'
 
+import { createLogger } from 'redux-logger'
+
 import feathers from './client'
 import rootUpdater from './updater'
 import rootEpic from './epic'
@@ -9,13 +11,9 @@ import rootEpic from './epic'
 export default function configureStore ({ history }) {
   const middleware = [
     createEpicMiddleware(rootEpic, { dependencies: { feathers } }),
-    routerMiddleware(history)
+    routerMiddleware(history),
+    createLogger()
   ]
-
-  //if (process.env.NODE_ENV === 'development') {
-    const { logger } = require(`redux-logger`)
-    middleware.push(logger)
-  //}
 
   const enhancer = compose(
     applyMiddleware(...middleware)
