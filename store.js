@@ -12,10 +12,10 @@ export default function configureStore ({ history }) {
     routerMiddleware(history)
   ]
 
-  if (process.env.NODE_ENV === 'development') {
+  //if (process.env.NODE_ENV === 'development') {
     const { logger } = require(`redux-logger`)
     middleware.push(logger)
-  }
+  //}
 
   const enhancer = compose(
     applyMiddleware(...middleware)
