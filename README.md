@@ -10,11 +10,17 @@ if you want to use this as a starting ground for your new app, simply fork this 
 
 if you want to develop this example further,
 
-```
+```shell
 git clone git@github.com:dogstack/dogstack-example
 cd dogstack-example
 yarn install
 yarn dev
+```
+
+### after deploy
+
+```shell
+heroku run npm run db migrate:latest --app=dogstack
 ```
 
 ## user stories
