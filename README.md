@@ -17,26 +17,6 @@ yarn install
 yarn dev
 ```
 
-### use forked version of `fela`
-
-at the moment this example relies on [fela#260](https://github.com/rofrischmann/fela/pull/260)
-
-```shell
-cd ../
-git clone git@github:ahdinosaur/fela
-cd fela
-git checkout build
-cd packages/fela
-npm link
-cd ../..
-cd packages/react-fela
-npm link
-
-cd ../dogstack-example
-npm link fela
-npm link react-fela
-```
-
 ## user stories
 
 TODO

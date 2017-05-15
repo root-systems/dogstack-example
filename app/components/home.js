@@ -1,5 +1,5 @@
 import React from 'react'
-import { createComponent } from 'react-fela'
+import { createComponent } from '@ahdinosaur/react-fela'
 
 import styles from '../styles/home'
 

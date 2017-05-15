@@ -1,5 +1,5 @@
 import React from 'react'
-import { connect as connectStyles } from 'react-fela'
+import { connect as connectStyles } from '@ahdinosaur/react-fela'
 import { Link } from 'react-router-dom'
 import { isNil } from 'ramda'
 

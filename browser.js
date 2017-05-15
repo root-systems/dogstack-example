@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider as ReduxProvider } from 'react-redux'
-import { Provider as FelaProvider } from 'react-fela'
+import { Provider as FelaProvider } from '@ahdinosaur/react-fela'
 import { ConnectedRouter } from 'react-router-redux'
 import createBrowserHistory from 'history/createBrowserHistory'
 

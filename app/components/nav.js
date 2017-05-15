@@ -1,5 +1,5 @@
 import React from 'react'
-import { createComponent } from 'react-fela'
+import { createComponent } from '@ahdinosaur/react-fela'
 import { NavLink } from 'react-router-dom'
 import { pipe, map, values } from 'ramda'
 
