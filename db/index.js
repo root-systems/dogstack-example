@@ -2,7 +2,6 @@ var { join } = require('path')
 // Update with your config settings.
 
 module.exports = {
-
   development: {
     client: 'sqlite3',
     connection: {
@@ -13,7 +12,8 @@ module.exports = {
     },
     seeds: {
       directory: join(__dirname, 'seeds')
-    }
+    },
+    useNullAsDefault: true
   },
 
   test: {
@@ -22,44 +22,33 @@ module.exports = {
       filename: ':memory:'
     },
     migrations: {
-      directory: './migrations'
+      directory: join(__dirname, 'migrations')
     },
     seeds: {
-      directory: './seeds'
+      directory: join(__dirname, 'seeds')
     },
     useNullAsDefault: true
   },
 
   staging: {
     client: 'postgresql',
-    connection: {
-      database: 'my_db',
-      user: 'username',
-      password: 'password'
-    },
-    pool: {
-      min: 2,
-      max: 10
-    },
+    connection: process.env.DATABASE_URL,
     migrations: {
-      tableName: 'knex_migrations'
+      directory: join(__dirname, 'migrations')
+    },
+    seeds: {
+      directory: join(__dirname, 'seeds')
     }
   },
 
   production: {
     client: 'postgresql',
     connection: process.env.DATABASE_URL,
-    pool: {
-      min: 2,
-      max: 10
-    },
     migrations: {
-      directory: './migrations',
-      tableName: 'knex_migrations'
+      directory: join(__dirname, 'migrations')
     },
     seeds: {
-      directory: './seeds'
+      directory: join(__dirname, 'seeds')
     }
   }
-
 }
