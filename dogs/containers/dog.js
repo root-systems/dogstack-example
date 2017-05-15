@@ -1,17 +1,17 @@
+import React from 'react'
 import { connect } from 'feathers-action-react'
 
-import Dogs from '../components/dogs'
+import Dog from '../components/dog'
 
 import { actions as dogActions } from '../'
 
-import { getIndexProps } from '../getters'
+import { getShowProps } from '../getters'
 
 export default connect({
-  selector: getIndexProps,
+  selector: getShowProps,
   actions: { dogs: dogActions },
   query: (props) => ({
     service: 'dogs',
-    id
-    params: props.match.dogId
+    id: props.match.params.dogId
   })
-})(Dogs)
+})(props => <Dog size='full' {...props} />)

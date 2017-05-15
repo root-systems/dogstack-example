@@ -8,6 +8,7 @@ import UserIsNotAuthenticated from './authentication/hoc/userIsNotAuthenticated'
 // Top Level Containers
 import Home from './app/containers/home'
 import DogsContainer from './dogs/containers/dogs'
+import DogContainer from './dogs/containers/dog'
 import SignInContainer from './authentication/containers/signIn'
 import SignOutContainer from './authentication/containers/signOut'
 import RegisterContainer from './authentication/containers/register'
@@ -52,6 +53,10 @@ export default [
     }
   },
   {
+    path: '/dogs/:dogId',
+    Component: UserIsAuthenticated(DogContainer)
+  },
+  {
     name: 'dogs',
     path: '/dogs',
     Component: UserIsAuthenticated(DogsContainer),
@@ -59,15 +64,5 @@ export default [
       title: 'Dogs',
       selector: getIsAuthenticated
     }
-  },
-  /*
-  {
-    path: '/dog',
-    Component: UserIsAuthenticated(DogContainer),
-    navigation: {
-      title: 'Dog',
-      selector: getIsAuthenticated
-    }
   }
-  */
 ]

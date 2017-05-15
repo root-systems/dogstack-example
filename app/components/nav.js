@@ -20,12 +20,13 @@ const mapRouteLinks = pipe(
     const {
       path,
       name = path,
+      title = name,
       Component
     } = route
 
     return (
       <NavLink to={path} key={name}>
-        {name}
+        {title}
       </NavLink>
     )
   }),

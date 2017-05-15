@@ -18,9 +18,10 @@ export const getNavigationRoutes = createSelector(
   uncurryN(2, state => {
     const mapRoutes = map(route => {
       const { name, navigation } = route
-      if (isNil(navigation)) return route
+      if (isNil(navigation)) return
+      if (navigation === true) return route
       const { selector } = navigation
-      if (selector(state)) return route
+      if (isNil(selector) || selector(state)) return route
     })
     return pipe(mapRoutes, filterNil, indexByName)
   })
