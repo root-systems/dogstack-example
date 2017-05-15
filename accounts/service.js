@@ -12,12 +12,15 @@ module.exports = function (db) {
 }
 
 module.exports.before = {
-  all: [
-    iff(isTransport('external'), discard('password'))
-  ],
   create: [
     hashPassword(),
     createAgent
+  ]
+}
+
+module.exports.after = {
+  all: [
+    iff(isTransport('external'), discard('password'))
   ]
 }
 
