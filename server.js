@@ -1,6 +1,9 @@
 const feathers = require('feathers')
 const { join } = require('path')
 const httpLogger = require('pino-http')
+const compress = require('compression')
+const helmet = require('helmet')
+const favicon = require('serve-favicon')
 const errorHandler = require('feathers-errors/handler')
 const UifyServer = require('uify-server')
 const pump = require('pump')
@@ -20,6 +23,10 @@ module.exports = function (options) {
   app.use(httpLogger({
     logger: log
   }))
+
+  app.use(compress())
+  app.use(helmet())
+  app.use(favicon(join(__dirname, 'app/favicon.ico')))
 
   // static files
   app.use('/', feathers.static(join(__dirname, 'assets')))

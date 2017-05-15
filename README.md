@@ -29,3 +29,6 @@ account is a way of logging in
 agent has one profile
 agent has and belongs to many relationships
 
+## license
+
+Emoji artwork is provided by [EmojiOne](https://www.emojione.com) and is licensed under [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/legalcode)
