@@ -35,7 +35,8 @@ module.exports = function (options) {
   app.use(Bundler({
     entry: join(__dirname, 'browser.js'),
     debug: app.get('env') === 'development',
-    optimize: app.get('env') === 'production',
+    optimize: false,
+    cache: app.get('env') === 'production',
     head: `
       <style id="app-styles"></style>
       <style id="app-fonts"></style>

@@ -34,8 +34,6 @@ module.exports = function (db) {
       })
     }, services)
 
-    console.log('auth', app.get('auth'))
-
     app
       .configure(authentication(app.get('auth')))
       .configure(jwt())
