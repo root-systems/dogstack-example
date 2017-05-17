@@ -1,17 +1,17 @@
-/* global Primus */
 import feathers from 'feathers/client'
-import primus from 'feathers-primus/client'
+import socketio from 'feathers-socketio/client'
 import hooks from 'feathers-hooks'
 import auth from 'feathers-authentication-client'
 import rx from 'feathers-reactive'
 import Rx from 'rxjs'
+import io from 'socket.io-client'
 
 const localStorage = window ? window.localStorage : null
 
-const socket = new Primus()
+const socket = io()
 
 const client = feathers()
-  .configure(primus(socket))
+  .configure(socketio(socket))
   .configure(hooks())
   .configure(rx(Rx))
   .configure(auth({

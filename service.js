@@ -1,6 +1,6 @@
 const { forEachObjIndexed } = require('ramda')
 const hooks = require('feathers-hooks')
-const primus = require('feathers-primus')
+const socketio = require('feathers-socketio')
 const configuration = require('feathers-configuration')
 const authentication = require('feathers-authentication')
 const local = require('feathers-authentication-local')
@@ -20,8 +20,8 @@ module.exports = function (db) {
 
     app.configure(configuration())
     app.configure(hooks())
-    app.configure(primus({
-      transformer: 'websockets'
+    app.configure(socketio({
+      wsEngine: 'uws'
     }))
 
     // services

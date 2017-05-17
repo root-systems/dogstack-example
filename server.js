@@ -40,7 +40,6 @@ module.exports = function (options) {
       <style id="app-styles"></style>
       <style id="app-fonts"></style>
       <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
-      <script src="/primus/primus.js"></script>
     `,
     body: `<div id='app'></div>`,
     log
