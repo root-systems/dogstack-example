@@ -1,34 +1,37 @@
 const feathersKnex = require('feathers-knex')
-const hooks = require('feathers-hooks')
-const hashPassword = require('feathers-authentication-local').hooks.hashPassword
-const auth = require('feathers-authentication').hooks
+const { hashPassword } = require('feathers-authentication-local').hooks
 const { isProvider: isTransport, iff, discard } = require('feathers-hooks-common')
 
-module.exports = function (db) {
-  return feathersKnex({
-    Model: db,
-    name: 'accounts'
-  })
+module.exports = function () {
+  const app = this
+  const db = app.get('db')
+
+  const name = 'accounts'
+  const options = { Model: db, name }
+
+  app.use(name, feathersKnex(options))
+  app.service(name).hooks(hooks)
 }
 
-module.exports.before = {
-  create: [
-    hashPassword(),
-    createAgent
-  ]
+const hooks = {
+  before: {
+    create: [
+      hashPassword(),
+      createAgent
+    ]
+  },
+  after: {
+    all: [
+      iff(isTransport('external'), discard('password'))
+    ]
+  },
+  error: {
+    create: [
+      deleteAgentIfCreateFailed
+    ]
+  }
 }
 
-module.exports.after = {
-  all: [
-    iff(isTransport('external'), discard('password'))
-  ]
-}
-
-module.exports.error = {
-  create: [
-    deleteAgentIfCreateFailed
-  ]
-}
 
 function createAgent (hook) {
   const agents = hook.app.service('agents')

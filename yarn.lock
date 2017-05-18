@@ -1035,10 +1035,6 @@ base64url@2.0.0, base64url@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/base64url/-/base64url-2.0.0.tgz#eac16e03ea1438eff9423d69baa36262ed1f70bb"
 
-basic-auth@~1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/basic-auth/-/basic-auth-1.1.0.tgz#45221ee429f7ee1e5035be3f51533f1cdfd29884"
-
 bcrypt-pbkdf@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/bcrypt-pbkdf/-/bcrypt-pbkdf-1.0.1.tgz#63bc5dcb61331b92bc05fd528953c33462a06f8d"
@@ -1237,58 +1233,6 @@ browserify-zlib@~0.1.2:
   dependencies:
     pako "~0.2.0"
 
-browserify@^13.3.0:
-  version "13.3.0"
-  resolved "https://registry.yarnpkg.com/browserify/-/browserify-13.3.0.tgz#b5a9c9020243f0c70e4675bec8223bc627e415ce"
-  dependencies:
-    JSONStream "^1.0.3"
-    assert "^1.4.0"
-    browser-pack "^6.0.1"
-    browser-resolve "^1.11.0"
-    browserify-zlib "~0.1.2"
-    buffer "^4.1.0"
-    cached-path-relative "^1.0.0"
-    concat-stream "~1.5.1"
-    console-browserify "^1.1.0"
-    constants-browserify "~1.0.0"
-    crypto-browserify "^3.0.0"
-    defined "^1.0.0"
-    deps-sort "^2.0.0"
-    domain-browser "~1.1.0"
-    duplexer2 "~0.1.2"
-    events "~1.1.0"
-    glob "^7.1.0"
-    has "^1.0.0"
-    htmlescape "^1.1.0"
-    https-browserify "~0.0.0"
-    inherits "~2.0.1"
-    insert-module-globals "^7.0.0"
-    labeled-stream-splicer "^2.0.0"
-    module-deps "^4.0.8"
-    os-browserify "~0.1.1"
-    parents "^1.0.1"
-    path-browserify "~0.0.0"
-    process "~0.11.0"
-    punycode "^1.3.2"
-    querystring-es3 "~0.2.0"
-    read-only-stream "^2.0.0"
-    readable-stream "^2.0.2"
-    resolve "^1.1.4"
-    shasum "^1.0.0"
-    shell-quote "^1.6.1"
-    stream-browserify "^2.0.0"
-    stream-http "^2.0.0"
-    string_decoder "~0.10.0"
-    subarg "^1.0.0"
-    syntax-error "^1.1.1"
-    through2 "^2.0.0"
-    timers-browserify "^1.0.1"
-    tty-browserify "~0.0.0"
-    url "~0.11.0"
-    util "~0.10.1"
-    vm-browserify "~0.0.1"
-    xtend "^4.0.0"
-
 browserify@^14.0.0, browserify@^14.3.0:
   version "14.3.0"
   resolved "https://registry.yarnpkg.com/browserify/-/browserify-14.3.0.tgz#fd003a2386ac1aec127f097885a3cc6373b745c4"
@@ -1360,14 +1304,6 @@ buffer-writer@1.0.1:
 buffer-xor@^1.0.2:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/buffer-xor/-/buffer-xor-1.0.3.tgz#26e61ed1422fb70dd42e6e36729ed51d855fe8d9"
-
-buffer@^4.1.0:
-  version "4.9.1"
-  resolved "https://registry.yarnpkg.com/buffer/-/buffer-4.9.1.tgz#6d1bb601b07a4efced97094132093027c95bc298"
-  dependencies:
-    base64-js "^1.0.2"
-    ieee754 "^1.1.4"
-    isarray "^1.0.0"
 
 buffer@^5.0.2:
   version "5.0.6"
@@ -1865,7 +1801,7 @@ create-html@^1.1.0:
     exit "^0.1.2"
     minimist "^1.2.0"
 
-create-react-class@^15.5.1:
+create-react-class@^15.5.1, create-react-class@^15.5.3:
   version "15.5.3"
   resolved "https://registry.yarnpkg.com/create-react-class/-/create-react-class-15.5.3.tgz#fb0f7cae79339e9a179e194ef466efa3923820fe"
   dependencies:
@@ -1979,7 +1915,7 @@ debug-log@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/debug-log/-/debug-log-1.0.1.tgz#2307632d4c04382b8df8a32f70b895046d52745f"
 
-debug@2.2.0, debug@~2.2.0:
+debug@2.2.0, debug@^2.2.0, debug@~2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.2.0.tgz#f87057e995b1a1f6ae6a4960664137bc56f039da"
   dependencies:
@@ -1991,19 +1927,19 @@ debug@2.3.3:
   dependencies:
     ms "0.7.2"
 
-debug@2.6.1, debug@^2.2.0, debug@^2.3.1, debug@^2.3.2, debug@^2.6.0:
+debug@2.6.1, debug@^2.1.1, debug@^2.1.3, debug@^2.3.1, debug@^2.6.0:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.1.tgz#79855090ba2c4e3115cc7d8769491d58f0491351"
   dependencies:
     ms "0.7.2"
 
-debug@2.6.4, debug@^2.1.3:
+debug@2.6.4:
   version "2.6.4"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.4.tgz#7586a9b3c39741c0282ae33445c4e8ac74734fe0"
   dependencies:
     ms "0.7.3"
 
-debug@^2.1.1, debug@~2.6.4, debug@~2.6.6:
+debug@~2.6.4, debug@~2.6.6:
   version "2.6.6"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.6.tgz#a9fa6fbe9ca43cf1e79f73b75c0189cbb7d6db5a"
   dependencies:
@@ -2013,9 +1949,9 @@ decamelize@^1.0.0, decamelize@^1.1.1, decamelize@^1.1.2:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/decamelize/-/decamelize-1.2.0.tgz#f6534d15148269b20352e7bee26f501f9a191290"
 
-deep-diff@0.3.4:
-  version "0.3.4"
-  resolved "https://registry.yarnpkg.com/deep-diff/-/deep-diff-0.3.4.tgz#aac5c39952236abe5f037a2349060ba01b00ae48"
+deep-diff@^0.3.5:
+  version "0.3.8"
+  resolved "https://registry.yarnpkg.com/deep-diff/-/deep-diff-0.3.8.tgz#c01de63efb0eec9798801d40c7e0dae25b582c84"
 
 deep-equal@^1.0.0, deep-equal@^1.0.1:
   version "1.0.1"
@@ -2159,18 +2095,58 @@ dog-names@^1.0.2:
     meow "^3.0.0"
     unique-random-array "^1.0.0"
 
-dogstack@0.1:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/dogstack/-/dogstack-0.1.0.tgz#ef7da0ca5fa96d96d1b64c16b8577500473e6cb0"
+dogstack@0.2.0-pre.4:
+  version "0.2.0-pre.4"
+  resolved "https://registry.yarnpkg.com/dogstack/-/dogstack-0.2.0-pre.4.tgz#8ed678c1ba5a790dd4b7ee50413dd97f8b747d2f"
   dependencies:
+    "@ahdinosaur/fela" "^4.3.5"
+    "@ahdinosaur/react-fela" "^4.3.5"
     ava "github:ahdinosaur/ava#cli-options"
     babel-register "^6.24.1"
+    compression "^1.6.2"
+    es2040 "^1.2.5"
+    feathers "^2.1.2"
+    feathers-authentication "^1.2.3"
+    feathers-authentication-client "^0.3.2"
+    feathers-configuration "^0.4.1"
+    feathers-errors "^2.8.0"
+    feathers-hooks "^2.0.1"
+    feathers-reactive "^0.4.1"
+    feathers-socketio "^2.0.0"
+    fela-beautifier "^4.3.5"
+    fela-font-renderer "^4.3.5"
+    fela-monolithic "^4.3.5"
+    fela-plugin-fallback-value "^4.3.5"
+    fela-plugin-lvha "^4.3.5"
+    fela-plugin-prefixer "^4.3.5"
+    fela-plugin-unit "^4.3.5"
+    fela-plugin-validator "^4.3.5"
+    helmet "^3.6.0"
+    history "^4.6.1"
     knex "^0.13.0"
+    longjohn "^0.2.12"
     node-dev "^3.1.3"
     pino "^4.5.0"
     pino-colada "^1.4.0"
+    pino-http "^2.6.1"
+    pump "^1.0.2"
+    ramda "^0.23.0"
+    react "^15.5.4"
+    react-dom "^15.5.4"
+    react-hyperscript "^3.0.0"
+    react-redux "^5.0.5"
+    react-router-redux next
+    redux "^3.6.0"
+    redux-fp "^0.2.0"
+    redux-logger "^3.0.6"
+    redux-observable "^0.14.1"
+    rxjs "^5.4.0"
+    serve-favicon "^2.4.3"
+    socket.io-client "^2.0.1"
     standard "^10.0.2"
     standard-engine "^7.0.0"
+    uify-server "^1.1.3"
+    uws "^0.14.5"
     yargs "^7.1.0"
 
 domain-browser@~1.1.0:
@@ -2775,16 +2751,6 @@ feathers-authentication-client@^0.3.1, feathers-authentication-client@^0.3.2:
     feathers-errors "^2.4.0"
     jwt-decode "^2.1.0"
 
-feathers-authentication-hooks@^0.1.2:
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/feathers-authentication-hooks/-/feathers-authentication-hooks-0.1.3.tgz#b2f4a98d556569f29695f3917bdc4ea4aea50ed5"
-  dependencies:
-    debug "^2.3.2"
-    feathers-errors "^2.5.0"
-    lodash.get "^4.4.2"
-    lodash.isplainobject "^4.0.6"
-    lodash.set "^4.3.2"
-
 feathers-authentication-jwt@^0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/feathers-authentication-jwt/-/feathers-authentication-jwt-0.3.1.tgz#ef9a0c053cd015fdc20f3db9163e2c97aaa6592f"
@@ -2809,7 +2775,7 @@ feathers-authentication-local@^0.3.4:
     lodash.pick "^4.4.0"
     passport-local "^1.0.0"
 
-feathers-authentication@^1.2.2:
+feathers-authentication@^1.2.3:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/feathers-authentication/-/feathers-authentication-1.2.3.tgz#7cbba3a2f228876d5671f3bb8616dd2fabb07934"
   dependencies:
@@ -2837,7 +2803,7 @@ feathers-configuration@^0.4.1:
     config "^1.21.0"
     debug "^2.2.0"
 
-feathers-errors@^2.0.1, feathers-errors@^2.2.0, feathers-errors@^2.4.0, feathers-errors@^2.5.0, feathers-errors@^2.6.2:
+feathers-errors@^2.0.1, feathers-errors@^2.2.0, feathers-errors@^2.4.0, feathers-errors@^2.5.0, feathers-errors@^2.6.2, feathers-errors@^2.8.0:
   version "2.8.0"
   resolved "https://registry.yarnpkg.com/feathers-errors/-/feathers-errors-2.8.0.tgz#0ec07f316e6efa11ac542a530a0a169d9ea9aa57"
   dependencies:
@@ -2899,7 +2865,7 @@ feathers-socketio@^2.0.0:
     socket.io "^2.0.1"
     uberproto "^1.2.0"
 
-feathers@^2.1.1:
+feathers@^2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/feathers/-/feathers-2.1.2.tgz#3ae68407fc403e6fa73fd96ed5812b73137a4cf9"
   dependencies:
@@ -2912,48 +2878,48 @@ feathers@^2.1.1:
     rubberduck "^1.1.1"
     uberproto "^1.2.0"
 
-fela-beautifier@^4.3.2:
+fela-beautifier@^4.3.5:
   version "4.3.5"
   resolved "https://registry.yarnpkg.com/fela-beautifier/-/fela-beautifier-4.3.5.tgz#3b2bb772d5955c54b9ad2c9046c008380416d79e"
   dependencies:
     cssbeautify "0.3.1"
 
-fela-font-renderer@^4.3.2:
+fela-font-renderer@^4.3.5:
   version "4.3.5"
   resolved "https://registry.yarnpkg.com/fela-font-renderer/-/fela-font-renderer-4.3.5.tgz#4d58b9cf69f9ca243111dacfae497532adb47a1a"
 
-fela-plugin-fallback-value@^4.3.2:
+fela-monolithic@^4.3.5:
+  version "4.3.5"
+  resolved "https://registry.yarnpkg.com/fela-monolithic/-/fela-monolithic-4.3.5.tgz#f6cb0ce14cddfd2e80faaebd03699d65dc33cd89"
+  dependencies:
+    css-in-js-utils "^1.0.3"
+
+fela-plugin-fallback-value@^4.3.5:
   version "4.3.5"
   resolved "https://registry.yarnpkg.com/fela-plugin-fallback-value/-/fela-plugin-fallback-value-4.3.5.tgz#81176452ef04e8dc6cfb96b3bcf5290cc79fc280"
   dependencies:
     css-in-js-utils "^1.0.3"
 
-fela-plugin-lvha@^4.3.2:
+fela-plugin-lvha@^4.3.5:
   version "4.3.5"
   resolved "https://registry.yarnpkg.com/fela-plugin-lvha/-/fela-plugin-lvha-4.3.5.tgz#f9082d6733d6129ad7d992fbe2fcebba56cd489e"
 
-fela-plugin-prefixer@^4.3.2:
+fela-plugin-prefixer@^4.3.5:
   version "4.3.5"
   resolved "https://registry.yarnpkg.com/fela-plugin-prefixer/-/fela-plugin-prefixer-4.3.5.tgz#35be389fd34da6d0301bf43556d14fc7d606f4b0"
   dependencies:
     css-in-js-utils "^1.0.3"
     inline-style-prefixer "^3.0.0"
 
-fela-plugin-unit@^4.3.2:
+fela-plugin-unit@^4.3.5:
   version "4.3.5"
   resolved "https://registry.yarnpkg.com/fela-plugin-unit/-/fela-plugin-unit-4.3.5.tgz#90897bd8b99bc21f2acbadb71b0c3bb27cb35b78"
   dependencies:
     css-in-js-utils "^1.0.3"
 
-fela-plugin-validator@^4.3.2:
+fela-plugin-validator@^4.3.5:
   version "4.3.5"
   resolved "https://registry.yarnpkg.com/fela-plugin-validator/-/fela-plugin-validator-4.3.5.tgz#384aea9f76e4613f57aac172a1eb5d7dab9b31eb"
-
-fela@^4.3.2:
-  version "4.3.5"
-  resolved "https://registry.yarnpkg.com/fela/-/fela-4.3.5.tgz#dbafc23e24c330a81b4788c2fe1a9442435e2c3c"
-  dependencies:
-    css-in-js-utils "^1.0.3"
 
 figures@^1.3.5:
   version "1.7.0"
@@ -3177,13 +3143,9 @@ generate-object-property@^1.1.0:
   dependencies:
     is-property "^1.0.0"
 
-generic-pool@2.4.3:
+generic-pool@2.4.3, generic-pool@^2.4.2:
   version "2.4.3"
   resolved "https://registry.yarnpkg.com/generic-pool/-/generic-pool-2.4.3.tgz#780c36f69dfad05a5a045dd37be7adca11a4f6ff"
-
-generic-pool@^2.4.2:
-  version "2.5.4"
-  resolved "https://registry.yarnpkg.com/generic-pool/-/generic-pool-2.5.4.tgz#38c6188513e14030948ec6e5cf65523d9779299b"
 
 get-caller-file@^1.0.1:
   version "1.0.2"
@@ -3511,10 +3473,6 @@ http-signature@~1.1.0:
 https-browserify@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/https-browserify/-/https-browserify-1.0.0.tgz#ec06c10e0a34c0f2faf199f7fd7fc78fffd03c73"
-
-https-browserify@~0.0.0:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/https-browserify/-/https-browserify-0.0.1.tgz#3f91365cabe60b77ed0ebba24b454e3e09d95a82"
 
 hullabaloo-config-manager@^1.0.0:
   version "1.0.1"
@@ -4347,10 +4305,6 @@ lodash.isequal@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
 
-lodash.isplainobject@^4.0.6:
-  version "4.0.6"
-  resolved "https://registry.yarnpkg.com/lodash.isplainobject/-/lodash.isplainobject-4.0.6.tgz#7c526a52d89b45c45cc690b88163be0497f550cb"
-
 lodash.keys@^3.0.0:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/lodash.keys/-/lodash.keys-3.1.2.tgz#4dbc0472b156be50a0b286855d1bd0b0c656098a"
@@ -4382,10 +4336,6 @@ lodash.pick@^4.4.0:
 lodash.reduce@4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/lodash.reduce/-/lodash.reduce-4.6.0.tgz#f1ab6b839299ad48f784abbf476596f03b914d3b"
-
-lodash.set@^4.3.2:
-  version "4.3.2"
-  resolved "https://registry.yarnpkg.com/lodash.set/-/lodash.set-4.3.2.tgz#d8757b1da807dde24816b0d6a84bea1a76230b23"
 
 lodash@^4.0.0, lodash@^4.17.3, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.6.0:
   version "4.17.4"
@@ -4609,21 +4559,11 @@ moment@2.x.x:
   version "2.18.1"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.18.1.tgz#c36193dd3ce1c2eed2adb7c802dbbc77a81b1c0f"
 
-morgan@^1.8.1:
-  version "1.8.1"
-  resolved "https://registry.yarnpkg.com/morgan/-/morgan-1.8.1.tgz#f93023d3887bd27b78dfd6023cea7892ee27a4b1"
-  dependencies:
-    basic-auth "~1.1.0"
-    debug "2.6.1"
-    depd "~1.1.0"
-    on-finished "~2.3.0"
-    on-headers "~1.0.1"
-
-ms@0.7.1:
+ms@0.7.1, ms@^0.7.1:
   version "0.7.1"
   resolved "https://registry.yarnpkg.com/ms/-/ms-0.7.1.tgz#9cd13c03adbff25b65effde7ce864ee952017098"
 
-ms@0.7.2, ms@^0.7.1:
+ms@0.7.2:
   version "0.7.2"
   resolved "https://registry.yarnpkg.com/ms/-/ms-0.7.2.tgz#ae25cf2512b3885a1d95d7f037868d8431124765"
 
@@ -4631,7 +4571,11 @@ ms@0.7.3:
   version "0.7.3"
   resolved "https://registry.yarnpkg.com/ms/-/ms-0.7.3.tgz#708155a5e44e33f5fd0fc53e81d0d40a91be1fff"
 
-ms@1.0.0, ms@^1.0.0:
+ms@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
+
+ms@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-1.0.0.tgz#59adcd22edc543f7b5381862d31387b1f4bc9473"
 
@@ -5191,7 +5135,7 @@ pino-colada@^1.4.0:
     pretty-ms "^2.1.0"
     split2 "^2.1.1"
 
-pino-http@^2.6.0:
+pino-http@^2.6.1:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/pino-http/-/pino-http-2.6.1.tgz#aec7e852ee8f47a089bc4be4614a627d2c302598"
   dependencies:
@@ -5336,7 +5280,7 @@ prop-types@15.5.8:
   dependencies:
     fbjs "^0.8.9"
 
-prop-types@^15.0.0, prop-types@^15.5.4, prop-types@^15.5.6, prop-types@^15.5.7, prop-types@^15.5.8, prop-types@~15.5.7:
+prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.6, prop-types@^15.5.7, prop-types@^15.5.8, prop-types@~15.5.7:
   version "15.5.10"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.5.10.tgz#2797dfc3126182e3a95e3dfbb2e893ddd7456154"
   dependencies:
@@ -5443,7 +5387,7 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.1.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-dom@^15.1.0:
+react-dom@^15.5.4:
   version "15.5.4"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.5.4.tgz#ba0c28786fd52ed7e4f2135fe0288d462aef93da"
   dependencies:
@@ -5451,6 +5395,10 @@ react-dom@^15.1.0:
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
     prop-types "~15.5.7"
+
+react-hyperscript@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/react-hyperscript/-/react-hyperscript-3.0.0.tgz#3c16010b33175de6bc01fd1ebad0a16a9a6dc9ab"
 
 react-redux@^4.4.5:
   version "4.4.8"
@@ -5463,17 +5411,17 @@ react-redux@^4.4.5:
     loose-envify "^1.1.0"
     prop-types "^15.5.4"
 
-react-redux@^5.0.4:
-  version "5.0.4"
-  resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-5.0.4.tgz#1563babadcfb2672f57f9ceaa439fb16bf85d55b"
+react-redux@^5.0.4, react-redux@^5.0.5:
+  version "5.0.5"
+  resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-5.0.5.tgz#f8e8c7b239422576e52d6b7db06439469be9846a"
   dependencies:
-    create-react-class "^15.5.1"
+    create-react-class "^15.5.3"
     hoist-non-react-statics "^1.0.3"
     invariant "^2.0.0"
     lodash "^4.2.0"
     lodash-es "^4.2.0"
     loose-envify "^1.1.0"
-    prop-types "^15.0.0"
+    prop-types "^15.5.10"
 
 react-router-config@^1.0.0-beta.3:
   version "1.0.0-beta.3"
@@ -5488,7 +5436,7 @@ react-router-dom@^4.1.1:
     prop-types "^15.5.4"
     react-router "^4.1.1"
 
-react-router-redux@^5.0.0-alpha.6:
+react-router-redux@^5.0.0-alpha.6, react-router-redux@next:
   version "5.0.0-alpha.6"
   resolved "https://registry.yarnpkg.com/react-router-redux/-/react-router-redux-5.0.0-alpha.6.tgz#7418663c2ecd3c51be856fcf28f3d1deecc1a576"
   dependencies:
@@ -5508,7 +5456,7 @@ react-router@^4.1.1:
     prop-types "^15.5.4"
     warning "^3.0.0"
 
-react@^15.1.0, react@^15.5.4:
+react@^15.5.4:
   version "15.5.4"
   resolved "https://registry.yarnpkg.com/react/-/react-15.5.4.tgz#fa83eb01506ab237cdc1c8c3b1cea8de012bf047"
   dependencies:
@@ -5659,11 +5607,11 @@ redux-fp@^0.2.0:
   dependencies:
     in-publish "^2.0.0"
 
-redux-logger@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/redux-logger/-/redux-logger-3.0.1.tgz#ae8ae4c3c55ed3dd7aa31509f0856c5d3751057a"
+redux-logger@^3.0.6:
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/redux-logger/-/redux-logger-3.0.6.tgz#f7555966f3098f3c88604c449cf0baf5778274bf"
   dependencies:
-    deep-diff "0.3.4"
+    deep-diff "^0.3.5"
 
 redux-observable@^0.14.1:
   version "0.14.1"
@@ -5903,13 +5851,13 @@ rx-lite@^3.1.2:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/rx-lite/-/rx-lite-3.1.2.tgz#19ce502ca572665f3b647b10939f97fd1615f102"
 
-rxjs@^5.3.0:
+rxjs@^5.3.0, rxjs@^5.4.0:
   version "5.4.0"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-5.4.0.tgz#a7db14ab157f9d7aac6a56e655e7a3860d39bf26"
   dependencies:
     symbol-observable "^1.0.1"
 
-safe-buffer@^5.0.1, safe-buffer@~5.0.1:
+safe-buffer@5.0.1, safe-buffer@^5.0.1, safe-buffer@~5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.0.1.tgz#d263ca54696cd8a306b5ca6551e92de57918fbe7"
 
@@ -5949,14 +5897,15 @@ send@0.15.1:
     range-parser "~1.2.0"
     statuses "~1.3.1"
 
-serve-favicon@^2.4.2:
-  version "2.4.2"
-  resolved "https://registry.yarnpkg.com/serve-favicon/-/serve-favicon-2.4.2.tgz#aed1d8de67d5b83192cf31fdf53d2ea29464363e"
+serve-favicon@^2.4.3:
+  version "2.4.3"
+  resolved "https://registry.yarnpkg.com/serve-favicon/-/serve-favicon-2.4.3.tgz#5986b17b0502642b641c21f818b1acce32025d23"
   dependencies:
     etag "~1.8.0"
     fresh "0.5.0"
-    ms "1.0.0"
+    ms "2.0.0"
     parseurl "~1.3.1"
+    safe-buffer "5.0.1"
 
 serve-static@1.12.1:
   version "1.12.1"
@@ -6732,17 +6681,6 @@ warning@^3.0.0:
   dependencies:
     loose-envify "^1.0.0"
 
-watchify-middleware@^1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/watchify-middleware/-/watchify-middleware-1.6.0.tgz#6db6e28f0279de1ca1209ae4f1a7f063745877c4"
-  dependencies:
-    concat-stream "^1.5.0"
-    debounce "^1.0.0"
-    events "^1.0.2"
-    object-assign "^4.0.1"
-    strip-ansi "^3.0.0"
-    watchify "^3.3.1"
-
 watchify-request@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/watchify-request/-/watchify-request-2.1.0.tgz#ddd5d96abfc54d43952b0e543d6feea775e7fff3"
@@ -6750,7 +6688,7 @@ watchify-request@^2.1.0:
     bl "^0.9.3"
     events "^1.0.2"
 
-watchify@^3.3.1, watchify@^3.9.0:
+watchify@^3.9.0:
   version "3.9.0"
   resolved "https://registry.yarnpkg.com/watchify/-/watchify-3.9.0.tgz#f075fd2e8a86acde84cedba6e5c2a0bedd523d9e"
   dependencies:
