@@ -5,4 +5,6 @@ const services = [
   require('./agents/service')
 ]
 
-module.exports = services
+export default {
+  services
+}

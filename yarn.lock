@@ -2095,9 +2095,9 @@ dog-names@^1.0.2:
     meow "^3.0.0"
     unique-random-array "^1.0.0"
 
-dogstack@0.2.0-pre.4:
-  version "0.2.0-pre.4"
-  resolved "https://registry.yarnpkg.com/dogstack/-/dogstack-0.2.0-pre.4.tgz#8ed678c1ba5a790dd4b7ee50413dd97f8b747d2f"
+dogstack@0.2.0-pre.9:
+  version "0.2.0-pre.9"
+  resolved "https://registry.yarnpkg.com/dogstack/-/dogstack-0.2.0-pre.9.tgz#966aecb55e7c600895942e71e6fd5fa81dc5ddea"
   dependencies:
     "@ahdinosaur/fela" "^4.3.5"
     "@ahdinosaur/react-fela" "^4.3.5"
