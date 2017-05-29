@@ -1,12 +1,18 @@
 const feathersKnex = require('feathers-knex')
-const hooks = require('feathers-hooks')
 
-module.exports = function (db) {
-  return feathersKnex({
-    Model: db,
-    name: 'agents'
-  })
+module.exports = function () {
+  const app = this
+  const db = app.get('db')
+
+  const name = 'agents'
+  const options = { Model: db, name }
+
+  app.use(name, feathersKnex(options))
+  app.service(name).hooks(hooks)
 }
 
-module.exports.before = {
+const hooks = {
+  before: {},
+  after: {},
+  error: {}
 }
