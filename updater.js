@@ -1,16 +1,14 @@
 import { concat, updateStateAt } from 'redux-fp'
 import { routerReducer } from 'react-router-redux'
 
-import { updater as authentication } from './authentication'
+import { updater as agents } from 'dogstack-agents'
 import { updater as dogs } from './dogs'
-import { updater as accounts } from './accounts'
 
 const router = updateStateAt('router', reducerToUpdater(routerReducer))
 
 export default concat(
-  authentication,
+  agents,
   dogs,
-  accounts,
   router
 )
 

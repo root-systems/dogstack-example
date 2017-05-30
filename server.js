@@ -1,8 +1,6 @@
 const services = [
-  require('./authentication/service'),
-  require('./dogs/service'),
-  require('./accounts/service'),
-  require('./agents/service')
+  require('dogstack-agents/service'),
+  require('./dogs/service')
 ]
 
 export default {

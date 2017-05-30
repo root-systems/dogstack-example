@@ -1,19 +1,25 @@
 import { Route } from 'react-router-dom'
 import React from 'react'
 
-import UserIsAuthenticated from './authentication/hoc/userIsAuthenticated'
-import UserIsAuthenticatedOrHome from './authentication/hoc/userIsAuthenticatedOrHome'
-import UserIsNotAuthenticated from './authentication/hoc/userIsNotAuthenticated'
-
 // Top Level Containers
 import Home from './app/containers/home'
 import DogsContainer from './dogs/containers/dogs'
 import DogContainer from './dogs/containers/dog'
-import SignInContainer from './authentication/containers/signIn'
-import SignOutContainer from './authentication/containers/signOut'
-import RegisterContainer from './authentication/containers/register'
 
-import { getIsAuthenticated, getIsNotAuthenticated } from './authentication/getters'
+import {
+  SignIn,
+  SignOut,
+  Register
+} from 'dogstack-agents/components'
+import {
+  UserIsAuthenticated,
+  UserIsNotAuthenticated,
+  UserIsAuthenticatedOrHome
+} from 'dogstack-agents/hoc'
+import {
+  getIsAuthenticated,
+  getIsNotAuthenticated
+} from 'dogstack-agents/getters'
 
 export default [
   {
@@ -28,7 +34,7 @@ export default [
   {
     name: 'sign-in',
     path: '/sign-in',
-    Component: UserIsNotAuthenticated(SignInContainer),
+    Component: UserIsNotAuthenticated(SignIn),
     navigation: {
       title: 'Sign in',
       selector: getIsNotAuthenticated
@@ -37,7 +43,7 @@ export default [
   {
     name: 'sign-out',
     path: '/sign-out',
-    Component: UserIsAuthenticatedOrHome(SignOutContainer),
+    Component: UserIsAuthenticatedOrHome(SignOut),
     navigation: {
       title: 'Sign out',
       selector: getIsAuthenticated
@@ -46,7 +52,7 @@ export default [
   {
     name: 'register',
     path: '/register',
-    Component: UserIsNotAuthenticated(RegisterContainer),
+    Component: UserIsNotAuthenticated(Register),
     navigation: {
       title: 'Register',
       selector: getIsNotAuthenticated
