@@ -35,6 +35,7 @@
     "cuid": "^1.3.8",
     "dog-names": "^1.0.2",
     "dogstack": "^0.2.1",
+    "dogstack-agents": "^0.1.1",
     "feathers-action": "^2.2.0",
     "feathers-action-react": "ahdinosaur/feathers-action-react#cancel",
     "feathers-authentication": "^1.2.3",
