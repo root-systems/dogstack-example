@@ -13,8 +13,8 @@ if you want to develop this example further,
 ```shell
 git clone git@github.com:dogstack/dogstack-example
 cd dogstack-example
-yarn install
-yarn dev
+npm install
+npm run dev
 ```
 
 ### after deploy
