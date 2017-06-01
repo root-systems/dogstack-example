@@ -30,7 +30,7 @@
     "@ahdinosaur/react-fela": "^4.3.5",
     "babel-plugin-ramda": "^1.2.0",
     "dog-names": "^1.0.2",
-    "dogstack": "^0.2.1",
+    "dogstack": "^0.2.2",
     "dogstack-agents": "^0.1.2",
     "feathers-action": "^2.2.0",
     "feathers-action-react": "ahdinosaur/feathers-action-react#cancel",
