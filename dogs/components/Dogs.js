@@ -1,11 +1,11 @@
 import React from 'react'
-import { connect as connectStyles } from '@ahdinosaur/react-fela'
+import { connect as connectStyles } from 'react-fela'
 import dogNames from 'dog-names'
 import { mapObjIndexed, values, keys, pipe} from 'ramda'
 
-import Dog from './dog'
+import Dog from './Dog'
 
-import styles from '../styles/dogs'
+import styles from '../styles/Dogs'
 
 const mapDogs = mapObjIndexed((dog, key) => {
   return <Dog key={key} dog={dog} size='small' />

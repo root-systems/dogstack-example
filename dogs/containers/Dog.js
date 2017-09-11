@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'feathers-action-react'
 
-import Dog from '../components/dog'
+import Dog from '../components/Dog'
 
 import { actions as dogActions } from '../'
 

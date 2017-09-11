@@ -1,9 +1,9 @@
 export default {
-  container: ({ color }) => ({
+  container: ({ theme }) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    backgroundColor: color
+    backgroundColor: theme.colors.primary1
   }),
   dogsContainer: () => ({
     display: 'flex',

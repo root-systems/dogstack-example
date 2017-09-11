@@ -1,9 +1,9 @@
 import React from 'react'
-import { connect as connectStyles } from '@ahdinosaur/react-fela'
+import { connect as connectStyles } from 'react-fela'
 import { Link } from 'react-router-dom'
 import { isNil } from 'ramda'
 
-import styles from '../styles/dog'
+import styles from '../styles/Dog'
 
 export default connectStyles(styles)(Dog)
 

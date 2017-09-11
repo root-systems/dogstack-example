@@ -14,6 +14,8 @@ if you want to develop this example further,
 git clone git@github.com:dogstack/dogstack-example
 cd dogstack-example
 npm install
+npm run db migrate:latest
+npm run db seed:run
 npm run dev
 ```
 

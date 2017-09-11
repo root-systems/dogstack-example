@@ -1,0 +1,1 @@
+../../node_modules/dogstack-agents/db/migrations/20170718135045_add-type-to-agents.js

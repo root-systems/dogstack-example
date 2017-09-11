@@ -1,0 +1,16 @@
+{
+  "app.name": "Dogstack",
+  "app.tagline": ":dog: :dog: :dog:",
+  "app.closeMenu": "close menu",
+  "app.home": "home",
+  "agents.nameLabel": "name",
+  "agents.email": "email",
+  "agents.password": "password",
+  "agents.confirmPassword": "confirm password",
+  "agents.createAccount": "create new account",
+  "agents.register": "register",
+  "agents.signIn": "sign in",
+  "agents.logOut": "log out",
+  "agents.welcome": "hey, welcome to dogstack!",
+  "agents.signInWith": "sign in with..."
+}
