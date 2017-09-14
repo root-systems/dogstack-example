@@ -26,6 +26,7 @@ export default [
     path: '/',
     exact: true,
     Component: Home,
+    selector: getIsNotAuthenticated,
     navigation: {
       title: 'app.home',
       icon: 'fa fa-home'
@@ -61,17 +62,20 @@ export default [
     }
   },
   {
-    path: '/dogs/:dogId',
-    Component: UserIsAuthenticated(DogContainer)
-  },
-  {
     name: 'dogs',
-    path: '/dogs',
+    path: '/',
+    exact: true,
     Component: UserIsAuthenticated(DogsContainer),
+    selector: getIsAuthenticated,
     navigation: {
       title: 'dogs.dogs',
       selector: getIsAuthenticated,
-      icon: 'fa fa-dog'
+      icon: 'fa fa-paw'
     }
+  },
+  {
+    name: 'dog',
+    path: '/d/:dogId',
+    Component: UserIsAuthenticated(DogContainer)
   }
 ]

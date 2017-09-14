@@ -1,43 +1,76 @@
-import React from 'react'
+import h from 'react-hyperscript'
 import { connect as connectStyles } from 'react-fela'
+import { compose } from 'recompose'
 import dogNames from 'dog-names'
 import { mapObjIndexed, values, keys, pipe} from 'ramda'
+import { FormattedMessage } from 'dogstack/intl'
 
 import Dog from './Dog'
 
 import styles from '../styles/Dogs'
 
-const mapDogs = mapObjIndexed((dog, key) => {
-  return <Dog key={key} dog={dog} size='small' />
-})
+const mapDogs = mapObjIndexed((dog, key) => (
+  h(Dog, {
+    key,
+    dog,
+    size: 'small'
+  })
+))
 const mapDogsToValues = pipe(mapDogs, values)
 
-class Dogs extends React.Component {
-  render () {
-    const { styles, dogs, actions } = this.props
-    const { create, remove } = actions.dogs
+const Dogs = (props) => {
+  const { styles, dogs, actions } = props
 
-    return <div className={styles.container}>
-      <h1 className={styles.title}>MY DOGS</h1>
-      <button
-        className={styles.adoptButton}
-        onClick={() => create({ name: dogNames.allRandom() })}
-      >
-        Adopt a dog!
-      </button>
-      <button
-        className={styles.adoptButton}
-        onClick={() => {
-          remove(keys(dogs)[0])
-        }}
-      >
-        Give a dog to a friend!
-      </button>
-      <div className={styles.dogsContainer}>
-        {mapDogsToValues(dogs)}
-      </div>
-    </div>
+  return (
+    h('div', {
+      className: styles.container
+    }, [
+      h('h1', {
+        className: styles.title
+      }, [
+        h(FormattedMessage, {
+          id: 'dogs.myDogs',
+          className: styles.titleText
+        })
+      ]),
+      h('button', {
+        className: styles.adoptButton,
+        onClick: createDog
+      }, [
+        h(FormattedMessage, {
+          id: 'dogs.adoptDog',
+          className: styles.buttonText
+        })
+      ]),
+      h('button', {
+        className: styles.giveButton,
+        onClick: removeDog
+      }, [
+        h(FormattedMessage, {
+          id: 'dogs.giveDog',
+          className: styles.buttonText
+        })
+      ]),
+      h('div', {
+        className: styles.dogsContainer
+      }, [
+        mapDogsToValues(dogs)
+      ])
+    ])
+  )
+
+  function createDog () {
+    const name = dogNames.allRandom()
+    actions.dogs.create({ name })
+  }
+
+  function removeDog () {
+    const id = keys(dogs)[0]
+    actions.dogs.remove(id)
   }
 }
 
-export default connectStyles(styles)(Dogs)
+export default compose(
+  connectStyles(styles)
+)(Dogs)
+

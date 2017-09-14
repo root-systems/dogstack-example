@@ -1,21 +1,34 @@
-import React from 'react'
+import h from 'react-hyperscript'
 import { connect as connectStyles } from 'react-fela'
+import { compose } from 'recompose'
 import { Link } from 'react-router-dom'
 import { isNil } from 'ramda'
 
 import styles from '../styles/Dog'
 
-export default connectStyles(styles)(Dog)
-
-function Dog (props) {
+const Dog = (props) => {
   const { dog, styles } = props
   if (isNil(dog)) return null
 
-  return <div className={styles.container}>
-    <Link className={styles.name} to={`/dogs/${dog.id}`}>
-      <i className='em em-dog' />
-      {dog.name}
-      <i className='em em-dog' />
-    </Link>
-  </div>
+  return (
+    h('div', {
+      className: styles.container
+    }, [
+      h(Link, {
+        className: styles.name,
+        to: `/d/${dog.id}`
+      }),
+      h('i', {
+        className: 'em em-dog'
+      }),
+      dog.name,
+      h('i', {
+        className: 'em em-dog'
+      })
+    ])
+  )
 }
+
+export default compose(
+  connectStyles(styles)
+)(Dog)

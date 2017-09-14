@@ -1,17 +1,27 @@
+import { combineRules } from 'fela'
+
+const spaceAbove = ({ theme }) => ({
+  marginTop: theme.space[2]
+})
+
+const container = () => ({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center'
+})
+
 export default {
-  container: ({ theme }) => ({
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    backgroundColor: theme.colors.primary1
+  container: combineRules(container, ({ theme }) => ({
+    height: '100%',
+    backgroundColor: theme.colors.secondary3
+  })),
+  dogsContainer: combineRules(container, spaceAbove),
+  titleText: () => ({
+    textTransform: 'uppercase'
   }),
-  dogsContainer: () => ({
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    marginTop: '20px'
+  buttonText: () => ({
+    textTransform: 'capitalize'
   }),
-  adoptButton: () => ({
-    marginTop: '20px'
-  })
+  adoptButton: combineRules(spaceAbove),
+  giveButton: combineRules(spaceAbove)
 }

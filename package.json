@@ -31,8 +31,8 @@
   "dependencies": {
     "babel-plugin-ramda": "^1.2.0",
     "dog-names": "^1.0.2",
-    "dogstack": "^0.5.0-pre.11",
-    "dogstack-agents": "root-systems/dogstack-agents#feature/auth-components",
+    "dogstack": "^0.5.1",
+    "dogstack-agents": "github:root-systems/dogstack-agents#feature/auth-components",
     "feathers-action": "^2.4.0",
     "feathers-action-react": "^2.2.1",
     "feathers-errors": "^2.6.2",
