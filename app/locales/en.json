@@ -1,0 +1,20 @@
+{
+  "app.name": "dogstack",
+  "app.tagline": "a popular-choice grab-bag framework for teams working on production web apps",
+  "app.closeMenu": "close menu",
+  "app.home": "home",
+  "agents.nameLabel": "name",
+  "agents.email": "email",
+  "agents.password": "password",
+  "agents.confirmPassword": "confirm password",
+  "agents.createAccount": "create new account",
+  "agents.register": "register",
+  "agents.signIn": "sign in",
+  "agents.logOut": "log out",
+  "agents.welcome": "hey, welcome to dogstack!",
+  "agents.signInWith": "sign in with...",
+  "dogs.dogs": "dogs",
+  "dogs.myDogs": "my dogs",
+  "dogs.adoptDog": "adopt a dog!",
+  "dogs.giveDog": "give a dog to a friend!"
+}

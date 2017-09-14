@@ -2,19 +2,18 @@ import { Route } from 'react-router-dom'
 import React from 'react'
 
 // Top Level Containers
-import Home from './app/containers/home'
-import DogsContainer from './dogs/containers/dogs'
-import DogContainer from './dogs/containers/dog'
+import Home from './app/containers/Home'
+import DogsContainer from './dogs/containers/Dogs'
+import DogContainer from './dogs/containers/Dog'
 
 import {
   SignIn,
-  SignOut,
+  LogOut,
   Register
 } from 'dogstack-agents/components'
 import {
   UserIsAuthenticated,
   UserIsNotAuthenticated,
-  UserIsAuthenticatedOrHome
 } from 'dogstack-agents/hoc'
 import {
   getIsAuthenticated,
@@ -27,26 +26,29 @@ export default [
     path: '/',
     exact: true,
     Component: Home,
+    selector: getIsNotAuthenticated,
     navigation: {
-      title: 'Sign in'
+      title: 'app.home',
+      icon: 'fa fa-home'
     }
   },
   {
-    name: 'sign-in',
+    name: 'signIn',
     path: '/sign-in',
+    exact: true,
     Component: UserIsNotAuthenticated(SignIn),
     navigation: {
-      title: 'Sign in',
-      selector: getIsNotAuthenticated
+      title: 'agents.signIn',
+      selector: getIsNotAuthenticated,
+      icon: 'fa fa-sign-in'
     }
   },
   {
-    name: 'sign-out',
-    path: '/sign-out',
-    Component: UserIsAuthenticatedOrHome(SignOut),
+    name: 'logOut',
     navigation: {
-      title: 'Sign out',
-      selector: getIsAuthenticated
+      Component: LogOut,
+      selector: getIsAuthenticated,
+      icon: 'fa fa-sign-out'
     }
   },
   {
@@ -54,21 +56,26 @@ export default [
     path: '/register',
     Component: UserIsNotAuthenticated(Register),
     navigation: {
-      title: 'Register',
-      selector: getIsNotAuthenticated
+      title: 'agents.register',
+      selector: getIsNotAuthenticated,
+      icon: 'fa fa-heart'
     }
-  },
-  {
-    path: '/dogs/:dogId',
-    Component: UserIsAuthenticated(DogContainer)
   },
   {
     name: 'dogs',
-    path: '/dogs',
+    path: '/',
+    exact: true,
     Component: UserIsAuthenticated(DogsContainer),
+    selector: getIsAuthenticated,
     navigation: {
-      title: 'Dogs',
-      selector: getIsAuthenticated
+      title: 'dogs.dogs',
+      selector: getIsAuthenticated,
+      icon: 'fa fa-paw'
     }
+  },
+  {
+    name: 'dog',
+    path: '/d/:dogId',
+    Component: UserIsAuthenticated(DogContainer)
   }
 ]

@@ -1,5 +1,7 @@
+import baseTheme from './app/themes/base'
+
 export default {
-  fontNode: '#app-fonts',
+  theme: baseTheme,
   setup: (renderer) => {
     renderer.renderStatic(
       {
@@ -7,13 +9,12 @@ export default {
         height: '100%',
         margin: 0,
         padding: 0,
-        fontFamily: 'Lato'
+        fontFamily: 'Roboto'
       },
       'html,body,#app'
     )
-    renderer.renderStatic({ display: 'flex' }, 'div')
-    renderer.renderFont('Lato', [
-      'https://fonts.gstatic.com/s/lato/v11/qIIYRU-oROkIk8vfvxw6QvesZW2xOQ-xsNqO47m55DA.woff'
+    renderer.renderFont('Roboto', [
+      'https://fonts.googleapis.com/css?family=Roboto:400,400i,700'
     ])
   }
 }

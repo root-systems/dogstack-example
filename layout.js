@@ -1,2 +1,2 @@
-import Layout from './app/containers/layout'
+import Layout from './app/containers/Layout'
 export default Layout
