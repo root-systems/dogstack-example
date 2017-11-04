@@ -18,3 +18,4 @@ export const getIndexProps = createStructuredSelector({
 export const getShowProps = createStructuredSelector({
   dog: getCurrentDog
 })
+

@@ -8,7 +8,9 @@ import { getIndexProps } from '../getters'
 
 export default connect({
   selector: getIndexProps,
-  actions: { dogs: dogActions },
+  actions: {
+    dogs: dogActions
+  },
   query: {
     service: 'dogs',
     params: {}
