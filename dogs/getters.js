@@ -14,7 +14,6 @@ export const getIndexProps = createStructuredSelector({
   dogs: getDogs
 })
 
-
 export const getShowProps = createStructuredSelector({
   dog: getCurrentDog
 })

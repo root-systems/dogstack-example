@@ -1,4 +1,5 @@
 import h from 'react-hyperscript'
+import { Link } from 'react-router-dom'
 import { connect as connectStyles } from 'react-fela'
 import { compose } from 'recompose'
 import dogNames from 'dog-names'
@@ -10,11 +11,15 @@ import Dog from './Dog'
 import styles from '../styles/Dogs'
 
 const mapDogs = mapObjIndexed((dog, key) => (
-  h(Dog, {
-    key,
-    dog,
-    size: 'small'
-  })
+  h(Link, {
+    to: `/d/${dog.id}`
+  }, [
+    h(Dog, {
+      key,
+      dog,
+      size: 'small'
+    })
+  ])
 ))
 const mapDogsToValues = pipe(mapDogs, values)
 

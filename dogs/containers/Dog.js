@@ -13,14 +13,13 @@ export default connect({
     dogs: dogActions
   },
   query: {
-    method: dogActions.get,
-    id: getCurrentDogId
+    service: 'dogs',
+    id: getCurrentDogId,
+    params: {}
   }
 })(DogContainer)
 
 function DogContainer (props) {
-  const nextProps = merge({
-    size: 'full'
-  }, props)
+  const nextProps = merge({ size: 'full' }, props)
   return h(Dog, nextProps)
 }
