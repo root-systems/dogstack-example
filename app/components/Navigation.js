@@ -10,7 +10,6 @@ import { NavLink } from 'react-router-dom'
 
 import styles from '../styles/Navigation'
 import { FormattedMessage } from 'dogstack/intl'
-import { LogOut } from 'dogstack-agents/components'
 
 function Navigation (props) {
   const { styles, isDrawerOpen, toggleDrawer, navigationRoutes } = props

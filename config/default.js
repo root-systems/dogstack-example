@@ -29,7 +29,6 @@ config.browser = {
 }
 
 module.exports = deepExtend(
-  require('dogstack-agents/config'),
   config
 )
 

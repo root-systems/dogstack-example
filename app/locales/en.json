@@ -2,7 +2,6 @@
   "app.name": "dogstack",
   "app.tagline": "a popular-choice grab-bag framework for teams working on production web apps",
   "app.closeMenu": "close menu",
-  "app.home": "home",
   "agents.nameLabel": "name",
   "agents.email": "email",
   "agents.password": "password",
