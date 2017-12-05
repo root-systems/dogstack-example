@@ -1,5 +1,6 @@
 {
   "app.name": "dogstack",
   "app.tagline": "a popular-choice grab-bag framework for teams working on production web apps",
-  "app.closeMenu": "close menu"
+  "app.closeMenu": "close menu",
+  "dogs.dog": "dog"
 }
