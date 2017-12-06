@@ -2,5 +2,8 @@
   "app.name": "dogstack",
   "app.tagline": "a popular-choice grab-bag framework for teams working on production web apps",
   "app.closeMenu": "close menu",
-  "dogs.dog": "dog"
+  "dogs.dog": "dog",
+  "dogs.myDogs": "My Dogs",
+  "dogs.adoptDog": "Adopt a dog!",
+  "dogs.giveDog": "Give A Dog To A Friend"
 }
