@@ -1,5 +1,6 @@
 import h from 'react-hyperscript'
 import { connect } from 'feathers-action-react'
+import { merge } from 'ramda'
 
 import Dog from '../components/Dog'
 
@@ -13,8 +14,9 @@ export default connect({
     dogs: dogActions
   },
   query: {
-    method: dogActions.get,
-    id: getCurrentDogId
+    service: 'dogs',
+    id: getCurrentDogId,
+    params: {}
   }
 })(DogContainer)
 

@@ -8,6 +8,7 @@ import styles from '../styles/Dog'
 
 const Dog = (props) => {
   const { dog, styles } = props
+
   if (isNil(dog)) return null
 
   return (
@@ -17,14 +18,15 @@ const Dog = (props) => {
       h(Link, {
         className: styles.name,
         to: `/d/${dog.id}`
-      }),
-      h('i', {
-        className: 'em em-dog'
-      }),
-      dog.name,
-      h('i', {
-        className: 'em em-dog'
-      })
+      }, [
+        h('i', {
+          className: 'em em-dog'
+        }),
+        dog.name,
+        h('i', {
+          className: 'em em-dog'
+        })
+      ])
     ])
   )
 }
