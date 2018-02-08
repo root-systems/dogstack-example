@@ -13,8 +13,5 @@ export default {
       },
       'html,body,#app'
     )
-    renderer.renderFont('Roboto', [
-      'https://fonts.googleapis.com/css?family=Roboto:400,400i,700'
-    ])
   }
 }
