@@ -3,6 +3,7 @@
   "description": "the example basic dogstack app",
   "repository": "https://github.com/root-systems/dogstack-example",
   "addons": [
-    "heroku-postgresql:hobby-dev"
+    "heroku-postgresql:hobby-dev",
+    "papertrail"
   ]
 }
