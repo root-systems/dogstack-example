@@ -6,6 +6,9 @@
     "heroku-postgresql:hobby-dev",
     "papertrail"
   ],
+  "env": {
+    "NODE_MODULES_CACHE": false
+  },
   "scripts": {
     "postdeploy": "npm run db migrate:latest && npm run db seed:run"
   }
