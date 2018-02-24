@@ -7,8 +7,15 @@
     "papertrail"
   ],
   "env": {
-    "NODE_MODULES_CACHE": {
-      "value": false
+    "APP_URL": {
+      "description": "the url that the app is running at",
+    },
+    "ASSETS_URL": {
+      "description": "the url of the app assets",
+    },
+    "AUTHENTICATION_SECRET": {
+      "description": "secret for auth",
+      "generator": "secret"
     }
   },
   "scripts": {
