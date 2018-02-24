@@ -7,7 +7,9 @@
     "papertrail"
   ],
   "env": {
-    "NODE_MODULES_CACHE": false
+    "NODE_MODULES_CACHE": {
+      "value": false
+    }
   },
   "scripts": {
     "postdeploy": "npm run db migrate:latest && npm run db seed:run"
