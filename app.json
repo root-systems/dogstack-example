@@ -8,10 +8,12 @@
   ],
   "env": {
     "APP_URL": {
-      "description": "the url that the app is running at"
+      "description": "the url that the app is running at",
+      "value": "https://[app name].herokuapp.com/"
     },
     "ASSETS_URL": {
-      "description": "the url of the app assets"
+      "description": "the url of the app assets",
+      "value": "https://[app name].herokuapp.com/"
     },
     "AUTHENTICATION_SECRET": {
       "description": "secret for auth",
