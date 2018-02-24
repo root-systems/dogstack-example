@@ -2,9 +2,11 @@
 
 an example app using the [dogstack framework](https://dogstack.js.org). :dog: :dog: :dog:
 
-TODO see it live at [dogstack.herokuapp.com](https://dogstack.herokuapp.com/)
+see it live at [dogstack.herokuapp.com](https://dogstack.herokuapp.com/)
 
-deploy to heroku [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+deploy a new copy of the app to heroku:
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 ## Table of Contents
 
