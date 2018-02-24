@@ -7,7 +7,7 @@ module.exports = {
     url: process.env.ASSETS_URL
   },
   authentication: {
-    secret: 'TODO',
+    secret: process.env.AUTHENTICATION_SECRET,
     remote: {
       google: {
         clientID: 'TODO',
@@ -22,5 +22,5 @@ module.exports = {
         clientSecret: 'TODO'
       }
     }
-  },
+  }
 }
