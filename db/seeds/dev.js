@@ -15,6 +15,7 @@ exports.seed = function (knex, Promise) {
     })
     // .then(([agentId]) => {
     .then((agentId) => {
+      console.log('agentId', agentId)
       // insert person profile
       const devPersonProfile = {
         agentId,
