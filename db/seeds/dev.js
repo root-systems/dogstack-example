@@ -14,8 +14,7 @@ exports.seed = function (knex, Promise) {
       return knex('agents').insert({ type: 'person' }).returning('id')
     })
     // .then(([agentId]) => {
-    .then((agentId) => {
-      console.log('agentId', agentId)
+    .then(([agentId]) => {
       // insert person profile
       const devPersonProfile = {
         agentId,
@@ -29,6 +28,7 @@ exports.seed = function (knex, Promise) {
       ])
     })
     .then(([agentId]) => {
+      console.log('agentId', agentId)
       // insert person credential
       const devPersonCredential = {
         agentId,
