@@ -2,7 +2,11 @@
 
 an example app using the [dogstack framework](https://dogstack.js.org). :dog: :dog: :dog:
 
-TODO see it live at [dogstack.herokuapp.com](https://dogstack.herokuapp.com/)
+see it live at [dogstack.herokuapp.com](https://dogstack.herokuapp.com/)
+
+deploy a new copy of the app to heroku:
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 ## Table of Contents
 
@@ -56,7 +60,7 @@ We're following the [dogstack folder structure convention](https://dogstack.js.o
   - root.js
   - intl.js
   - style.js
-  - layout.js 
+  - layout.js
   - routes.js
   - store.js (combines top-level epic and updater)
   - `topic` (e.g. `dogs`)

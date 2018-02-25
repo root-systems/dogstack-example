@@ -1,0 +1,26 @@
+{
+  "name": "dogstack example",
+  "description": "the example basic dogstack app",
+  "repository": "https://github.com/root-systems/dogstack-example",
+  "addons": [
+    "heroku-postgresql:hobby-dev",
+    "papertrail"
+  ],
+  "env": {
+    "APP_URL": {
+      "description": "the url that the app is running at (if you are deploying from the README, replace [app name] below with the app name you chose above)",
+      "value": "https://[app name].herokuapp.com/"
+    },
+    "ASSETS_URL": {
+      "description": "the url of the app assets (if you are deploying from the README, replace [app name] below with the app name you chose above)",
+      "value": "https://[app name].herokuapp.com/"
+    },
+    "AUTHENTICATION_SECRET": {
+      "description": "secret for auth",
+      "generator": "secret"
+    }
+  },
+  "scripts": {
+    "postdeploy": "npm run db migrate:latest && npm run db seed:run"
+  }
+}
