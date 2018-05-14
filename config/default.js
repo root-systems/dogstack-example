@@ -8,6 +8,7 @@ var config = {
     url: 'http://localhost:3000',
   },
   assets: {
+    entry: 'browser.js',
     root: 'app/assets',
     url: 'http://localhost:3000/'
   },

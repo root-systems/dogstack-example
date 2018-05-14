@@ -3,10 +3,14 @@
   "version": "1.0.0",
   "description": "example dogstack full-stack app",
   "scripts": {
-    "start": "dog server",
-    "dev": "dog dev server",
-    "lint": "dog lint",
-    "test": "dog test",
+    "dev:asset": "node-dev $(which dog) asset",
+    "dev:api": "node-dev $(which dog) api",
+    "dev": "npm-run-all dev:*",
+    "start:asset": "dog asset",
+    "start:api": "dog api",
+    "start": "npm-run-all start:*",
+    "lint": "standard",
+    "test": "ava",
     "deps": "dependency-check . client.js epic.js layout.js root.js routes.js server.js store.js style.js updater.js  --detective precinct && dependency-check . client.js epic.js layout.js root.js routes.js server.js store.js style.js updater.js --extra --no-dev --detective precinct -i babelify -i babel-preset-es2015 -i babel-preset-react -i babel-plugin-ramda -i pg",
     "db": "dog db",
     "burnthemall": "rm -rf package-lock.json node_modules; npm i",
@@ -44,6 +48,7 @@
     "feathers-knex": "^2.6.3",
     "fela": "^5.0.1",
     "material-ui": "^0.19.1",
+    "npm-run-all": "^4.1.2",
     "pg": "^6.1.5",
     "ramda": "^0.23.0",
     "react": "^15.5.4",
@@ -61,6 +66,7 @@
   "devDependencies": {
     "deep-freeze": "^0.0.1",
     "dependency-check": "^2.8.0",
+    "node-dev": "^3.1.3",
     "precinct": "^3.6.0",
     "sqlite3": "^3.1.8"
   }
