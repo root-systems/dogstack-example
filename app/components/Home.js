@@ -5,7 +5,7 @@ import { Route, Switch } from 'react-router-dom'
 import { pipe, map, values, isNil } from 'ramda'
 import { FormattedMessage } from 'dogstack/intl'
 import { Link } from 'react-router-dom'
-import RaisedButton from 'material-ui/RaisedButton'
+import Button from '@material-ui/core/Button'
 
 import styles from '../styles/Home'
 
@@ -45,8 +45,8 @@ function Home (props) {
           h(Link, {
             to: '/sign-in'
           }, [
-            h(RaisedButton, {
-              primary: true
+            h(Button, {
+              color: 'primary'
             }, [
               h(FormattedMessage, {
                 id: 'agents.signIn',
@@ -57,8 +57,8 @@ function Home (props) {
           h(Link, {
             to: '/register'
           }, [
-            h(RaisedButton, {
-              primary: true
+            h(Button, {
+              color: 'primary'
             }, [
               h(FormattedMessage, {
                 id: 'agents.register',

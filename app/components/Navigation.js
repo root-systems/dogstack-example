@@ -1,10 +1,10 @@
 import React from 'react'
 import { connect as connectFela } from 'react-fela'
 import { not, pipe, map, values, isNil } from 'ramda'
-import AppBar from 'material-ui/AppBar'
-import Drawer from 'material-ui/Drawer'
-import MenuItem from 'material-ui/MenuItem'
-import Divider from 'material-ui/Divider'
+import AppBar from '@material-ui/core/AppBar'
+import Drawer from '@material-ui/core/Drawer'
+import MenuItem from '@material-ui/core/MenuItem'
+import Divider from '@material-ui/core/Divider'
 import { withState, withHandlers, compose } from 'recompose'
 import { NavLink } from 'react-router-dom'
 
@@ -62,13 +62,13 @@ function Navigation (props) {
   return (
     <div>
       <AppBar
-        title={
+        children={
           <FormattedMessage
             id='app.name'
             className={styles.labelText}
           />
         }
-        onLeftIconButtonTouchTap={toggleDrawer}
+        // onLeftIconButtonTouchTap={toggleDrawer}
       />
       <Drawer open={isDrawerOpen}>
         <MenuItem

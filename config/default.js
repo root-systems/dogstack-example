@@ -1,13 +1,14 @@
 const deepExtend = require('deep-extend')
 
 var config = {
-  port: 3000,
   favicon: 'app/favicon.ico',
-  app: {
+  api: {
+    port: 3001,
     name: 'Dogstack Example',
-    url: 'http://localhost:3000',
+    url: 'http://localhost:3001/',
   },
-  assets: {
+  asset: {
+    port: 3000,
     entry: 'browser.js',
     root: 'app/assets',
     url: 'http://localhost:3000/'

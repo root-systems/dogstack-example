@@ -1,24 +1,4 @@
-import {
-  green500,
-  green600,
-  green700,
-  purple500,
-  purple600,
-  purple700,
-  grey50,
-  grey100,
-  grey200,
-  grey300,
-  grey400,
-  grey500,
-  grey600,
-  grey700,
-  grey800,
-  grey900,
-  darkBlack,
-  fullBlack,
-  white
-} from 'material-ui/styles/colors'
+import {green, purple, grey, black, white} from '@material-ui/core/colors'
 
 // GK: theme structure following https://github.com/jxnblk/styled-system/blob/master/README.md
 // and https://github.com/cloudflare/cf-ui/blob/master/packages/cf-style-const/src/variables.js
@@ -70,29 +50,29 @@ export default {
     logo: '"Roboto", sans-serif'
   },
   colors: {
-    primary1: green500,
-    primary2: green600,
-    primary3: green700,
-    accent1: purple500,
-    accent2: purple600,
-    accent3: purple700,
+    primary1: green[500],
+    primary2: green[600],
+    primary3: green[700],
+    accent1: purple[500],
+    accent2: purple[600],
+    accent3: purple[700],
     greys: [
-      grey50, // [0]
-      grey100, // [1]
-      grey200, // [2]
-      grey300, // [3]
-      grey400, // [4]
-      grey500, // [5]
-      grey600, // [6]
-      grey700, // [7]
-      grey800, // [8]
-      grey900 // [9]
+      grey[50], // [0]
+      grey[100], // [1]
+      grey[200], // [2]
+      grey[300], // [3]
+      grey[400], // [4]
+      grey[500], // [5]
+      grey[600], // [6]
+      grey[700], // [7]
+      grey[800], // [8]
+      grey[900] // [9]
     ],
-    text: darkBlack,
+    text: black,
     alternateText: white,
     canvas: white,
-    border: grey300,
-    shadow: fullBlack
+    border: grey[300],
+    shadow: black
   },
   fontWeights: {
     thin: 100,
