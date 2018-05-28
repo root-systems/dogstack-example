@@ -16,8 +16,8 @@ var config = {
 }
 
 config.browser = {
-  app: config.app,
-  assets: config.assets
+  api: config.api,
+  asset: config.asset
 }
 
 module.exports = deepExtend(
