@@ -46,6 +46,7 @@ function Home (props) {
             to: '/sign-in'
           }, [
             h(Button, {
+              variant: 'raised',
               color: 'primary'
             }, [
               h(FormattedMessage, {
@@ -58,6 +59,7 @@ function Home (props) {
             to: '/register'
           }, [
             h(Button, {
+              variant: 'raised',
               color: 'primary'
             }, [
               h(FormattedMessage, {

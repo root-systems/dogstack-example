@@ -42,6 +42,8 @@ function Navigation (props) {
           <Component
             key={name}
             as={ListItem}
+            onClick={toggleDrawer}
+            button={true}
             leftIcon={
               <i className={icon} aria-hidden="true" />
             }

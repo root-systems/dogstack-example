@@ -20,8 +20,12 @@ function Layout (props) {
       className: styles.container
     }, [
       h(Navigation, { navigationRoutes }),
-      h(Switch, {}, [
-        mapRoutePages(routes)
+      h('div', {
+        className: styles.wrapper
+      }, [
+        h(Switch, {}, [
+          mapRoutePages(routes)
+        ])
       ])
     ])
   )
