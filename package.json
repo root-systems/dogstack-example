@@ -9,6 +9,7 @@
     "start:asset": "dog asset",
     "start:api": "dog api",
     "start": "npm-run-all --parallel start:*",
+    "build": "bankai build browser.js",
     "lint": "standard",
     "test": "ava",
     "deps": "dependency-check . client.js epic.js layout.js root.js routes.js server.js store.js style.js updater.js  --detective precinct && dependency-check . client.js epic.js layout.js root.js routes.js server.js store.js style.js updater.js --extra --no-dev --detective precinct -i babelify -i babel-preset-es2015 -i babel-preset-react -i babel-plugin-ramda -i pg",
