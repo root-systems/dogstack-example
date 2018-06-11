@@ -1,10 +1,15 @@
 module.exports = {
   port: process.env.PORT,
-  app: {
-    url: process.env.APP_URL
+  api: {
+    port: process.env.API_PORT,
+    name: process.env.APP_NAME,
+    url: process.env.API_URL,
   },
-  assets: {
-    url: process.env.ASSETS_URL
+  asset: {
+    port: process.env.ASSET_PORT,
+    entry: process.env.ASSET_ENTRY,
+    root: process.env.ASSET_ROOT,
+    url: process.env.ASSET_URL
   },
   authentication: {
     secret: process.env.AUTHENTICATION_SECRET,
