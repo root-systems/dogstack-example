@@ -8,6 +8,9 @@ import Layout from './app/containers/Layout'
 
 const createBrowserEntry = require('dogstack/browser')
 const authentication = require('dogstack-agents/client')
+const Config = require('dogstack/config')
+const config = Config()()
+window.config = config
 
 const store = {
   updater,
@@ -17,7 +20,8 @@ const store = {
 const client = {
   services: [
     authentication
-  ]
+  ],
+  config
 }
 
 // root
@@ -39,6 +43,7 @@ const intl = {
 }
 
 createBrowserEntry({
+  config,
   store,
   style,
   client,

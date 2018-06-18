@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "example dogstack full-stack app",
   "scripts": {
-    "dev:asset": "node-dev $(which dog) asset",
+    "dev:asset": "node $(which dog) asset",
     "dev:api": "node-dev $(which dog) api",
     "dev": "npm-run-all --parallel dev:*",
     "start:asset": "dog asset",
@@ -22,7 +22,18 @@
   "license": "ISC",
   "browserify": {
     "transform": [
-      "babelify"
+      "babelify",
+      [
+        "dogstack/transform",
+        {
+          "config": {
+            "keys": [
+              "api",
+              "asset"
+            ]
+          }
+        }
+      ]
     ]
   },
   "babel": {
