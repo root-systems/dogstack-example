@@ -2,11 +2,15 @@
 
 an example app using the [dogstack framework](https://dogstack.js.org). :dog: :dog: :dog:
 
-see it live at [dogstack.herokuapp.com](https://dogstack.herokuapp.com/)
+see it live at [dogstack.netlify.com](https://dogstack.netlify.com/)
 
-deploy a new copy of the app to heroku:
+deploy a new copy of the assets (html, js, css) to netlify:
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/root-systems/dogstack-example)
+
+and deploy a new copy of the api to heroku:
+
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 ## Table of Contents
 
@@ -53,16 +57,11 @@ We're following the [dogstack folder structure convention](https://dogstack.js.o
 - root
   - package.json
   - server.js
-  - client.js
-  - actions.js (combines all actions)
+  - browser.js
   - epic.js (combines all epics)
   - updater.js (combines all updaters)
-  - root.js
-  - intl.js
   - style.js
-  - layout.js
   - routes.js
-  - store.js (combines top-level epic and updater)
   - `topic` (e.g. `dogs`)
     - dux
     - services
@@ -133,7 +132,7 @@ Anything that a developer working on this app should know about.
 ### After deploy: migrate on heroku!
 
 ```shell
-heroku run npm run db migrate:latest --app=dogstack
+heroku run npm run db migrate:latest --app=dogstack-example
 ```
 
 ## License
