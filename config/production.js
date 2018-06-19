@@ -1,7 +1,6 @@
 module.exports = {
-  port: process.env.PORT,
   api: {
-    port: process.env.API_PORT,
+    port: process.env.PORT,
     name: process.env.APP_NAME,
     url: process.env.API_URL,
   },
