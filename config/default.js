@@ -12,6 +12,9 @@ var config = {
     entry: 'browser.js',
     root: 'app/assets',
     url: 'http://localhost:3000/'
+  },
+  log: {
+    level: 'info'
   }
 }
 
