@@ -28,6 +28,7 @@
         {
           "config": {
             "keys": [
+              "app",
               "api",
               "asset",
               "authentication"
