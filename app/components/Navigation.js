@@ -1,4 +1,4 @@
-import React from 'react'
+import h from 'react-hyperscript'
 import { connect as connectFela } from 'react-fela'
 import { not, pipe, map, values, isNil } from 'ramda'
 import AppBar from '@material-ui/core/AppBar'
@@ -39,71 +39,69 @@ function Navigation (props) {
 
       if (Component) {
         item = (
-          <Component
-            key={name}
-            as={ListItem}
-            onClick={toggleDrawer}
-            button={true}
-            leftIcon={
-              <i className={icon} aria-hidden="true" />
-            }
-          />
+          h(Component, {
+            key: name,
+            as: ListItem,
+            onClick: toggleDrawer,
+            button: true,
+            leftIcon: h('i', { className: icon, 'aria-hidden': "true" })
+          })
         )
       } else {
         item = (
-          <NavLink to={path} key={name}>
-            <ListItem button onClick={toggleDrawer}>
-              <ListItemIcon>
-                <i className={icon} aria-hidden="true" />
-              </ListItemIcon>
-              <FormattedMessage
-                id={title}
-                className={styles.labelText}
-              />
-            </ListItem>
-          </NavLink>
+          h(NavLink, { to: path, key: name }, [
+            h(ListItem, { button: true, onClick: toggleDrawer }, [
+              h(ListItemIcon, [
+                h('i', { className: icon, 'aria-hidden': "true" })
+              ]),
+              h(FormattedMessage, {
+                id: title,
+                className: styles.labelText
+              })
+            ])
+          ])
         )
       }
 
       return (
-        <List component="nav">
-        { item }
-        </List>
+        h(List, { component: "nav" }, [
+          item
+        ])
       )
     }),
     values
   )
 
   return (
-    <div>
-      <AppBar>
-        <Toolbar>
-          <IconButton onClick={toggleDrawer} color="inherit" aria-label="Menu">
-            <MenuIcon />
-          </IconButton>
-          <FormattedMessage
-            id='app.name'
-            className={styles.labelText}
-          />
-        </Toolbar>
-      </AppBar>
-      <Drawer open={isDrawerOpen} onClose={toggleDrawer}>
-        <List component="nav">
-          <ListItem button onClick={toggleDrawer}>
-            <ListItemIcon>
-              <MenuIcon />
-            </ListItemIcon>
-            <FormattedMessage
-              id='app.closeMenu'
-              className={styles.labelText}
-            />
-          </ListItem>
-        </List>
-        <Divider />
-        {mapRouteItems(navigationRoutes)}
-        <Divider />
-      </Drawer>
-    </div>
+    h('div', [
+      h(AppBar, [
+        h(Toolbar, [
+          h(IconButton, { onClick: toggleDrawer, color: "inherit", 'aria-label': "Menu" }, [
+            h(MenuIcon)
+          ]),
+          h(FormattedMessage, {
+            id: 'app.name',
+            className: styles.labelText
+          })
+        ])
+      ]),
+      h(Drawer, { open: isDrawerOpen, onClose: toggleDrawer }, [
+        h(List, { component: "nav" }, [
+          h(ListItem, { button: true, onClick: toggleDrawer }, [
+            h(ListItemIcon, [
+              h(MenuIcon)
+            ]),
+            h(FormattedMessage, {
+              id: 'app.closeMenu',
+              className: styles.labelText
+            })
+          ])
+        ]),
+        h(Divider),
+        mapRouteItems(navigationRoutes),
+        h(Divider)
+      ])
+    ])
   )
 }
 
