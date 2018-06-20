@@ -21,7 +21,7 @@ const client = {
   services: [
     authentication
   ],
-  apiUrl: config.api.url
+  config
 }
 
 // root
