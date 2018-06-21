@@ -1,10 +1,16 @@
-import React from 'react'
+import h from 'react-hyperscript'
 import { connect as connectFela } from 'react-fela'
 import { not, pipe, map, values, isNil } from 'ramda'
-import AppBar from 'material-ui/AppBar'
-import Drawer from 'material-ui/Drawer'
-import MenuItem from 'material-ui/MenuItem'
-import Divider from 'material-ui/Divider'
+import AppBar from '@material-ui/core/AppBar'
+import Toolbar from '@material-ui/core/Toolbar'
+import IconButton from '@material-ui/core/IconButton'
+import MenuIcon from '@material-ui/icons/Menu'
+import Drawer from '@material-ui/core/Drawer'
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
+import ListItemIcon from '@material-ui/core/ListItemIcon'
+import ListItemText from '@material-ui/core/ListItemText'
+import Divider from '@material-ui/core/Divider'
 import { withState, withHandlers, compose } from 'recompose'
 import { NavLink } from 'react-router-dom'
 
@@ -29,64 +35,73 @@ function Navigation (props) {
         icon
       } = navigation
 
+      let item
+
       if (Component) {
-        return (
-          <Component
-            key={name}
-            as={MenuItem}
-            leftIcon={
-              <i className={icon} aria-hidden="true" />
-            }
-          />
+        item = (
+          h(Component, {
+            key: name,
+            as: ListItem,
+            onClick: toggleDrawer,
+            button: true,
+            leftIcon: h('i', { className: icon, 'aria-hidden': "true" })
+          })
+        )
+      } else {
+        item = (
+          h(NavLink, { to: path, key: name }, [
+            h(ListItem, { button: true, onClick: toggleDrawer }, [
+              h(ListItemIcon, [
+                h('i', { className: icon, 'aria-hidden': "true" })
+              ]),
+              h(FormattedMessage, {
+                id: title,
+                className: styles.labelText
+              })
+            ])
+          ])
         )
       }
 
       return (
-        <NavLink to={path} key={name}>
-          <MenuItem
-            leftIcon={
-              <i className={icon} aria-hidden="true" />
-            }
-          >
-            <FormattedMessage
-              id={title}
-              className={styles.labelText}
-            />
-          </MenuItem>
-        </NavLink>
+        h(List, { component: "nav" }, [
+          item
+        ])
       )
     }),
     values
   )
 
   return (
-    <div>
-      <AppBar
-        title={
-          <FormattedMessage
-            id='app.name'
-            className={styles.labelText}
-          />
-        }
-        onLeftIconButtonTouchTap={toggleDrawer}
-      />
-      <Drawer open={isDrawerOpen}>
-        <MenuItem
-          leftIcon={
-            <i className="fa fa-bars" aria-hidden="true"/>
-          }
-          onTouchTap={toggleDrawer}
-        >
-          <FormattedMessage
-            id='app.closeMenu'
-            className={styles.labelText}
-          />
-        </MenuItem>
-        <Divider />
-        {mapRouteItems(navigationRoutes)}
-        <Divider />
-      </Drawer>
-    </div>
+    h('div', [
+      h(AppBar, [
+        h(Toolbar, [
+          h(IconButton, { onClick: toggleDrawer, color: "inherit", 'aria-label': "Menu" }, [
+            h(MenuIcon)
+          ]),
+          h(FormattedMessage, {
+            id: 'app.name',
+            className: styles.labelText
+          })
+        ])
+      ]),
+      h(Drawer, { open: isDrawerOpen, onClose: toggleDrawer }, [
+        h(List, { component: "nav" }, [
+          h(ListItem, { button: true, onClick: toggleDrawer }, [
+            h(ListItemIcon, [
+              h(MenuIcon)
+            ]),
+            h(FormattedMessage, {
+              id: 'app.closeMenu',
+              className: styles.labelText
+            })
+          ])
+        ]),
+        h(Divider),
+        mapRouteItems(navigationRoutes),
+        h(Divider)
+      ])
+    ])
   )
 }
 
