@@ -76,7 +76,9 @@
     "redux-form-material-ui": "^5.0.0-beta.3",
     "redux-fp": "^0.2.0",
     "redux-observable": "^1.0.0",
-    "reselect": "^3.0.0"
+    "reselect": "^3.0.0",
+    "rxjs": "^6.2.1",
+    "rxjs-compat": "^6.2.1"
   },
   "devDependencies": {
     "deep-freeze": "^0.0.1",
