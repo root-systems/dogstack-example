@@ -60,9 +60,8 @@
     "dogstack-agents": "^1.1.0",
     "feathers-action": "^2.4.0",
     "feathers-action-react": "^2.2.1",
-    "feathers-errors": "^2.6.2",
     "feathers-hooks-common": "^3.0.0",
-    "feathers-knex": "^2.6.3",
+    "feathers-knex": "^3.1.1",
     "fela": "^6.1.7",
     "npm-run-all": "^4.1.2",
     "pg": "^6.1.5",
@@ -76,7 +75,7 @@
     "redux-form": "^7.0.0",
     "redux-form-material-ui": "^5.0.0-beta.3",
     "redux-fp": "^0.2.0",
-    "redux-observable": "^0.14.1",
+    "redux-observable": "^1.0.0",
     "reselect": "^3.0.0"
   },
   "devDependencies": {
