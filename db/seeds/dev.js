@@ -1,4 +1,4 @@
-const hasher = require('feathers-authentication-local/lib/utils/hash')
+const hasher = require('@feathersjs/authentication-local/lib/utils/hash')
 
 exports.seed = function (knex, Promise) {
   // delete ALL existing entries

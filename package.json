@@ -48,6 +48,7 @@
     ]
   },
   "dependencies": {
+    "@feathersjs/authentication-local": "^1.2.1",
     "@material-ui/core": "1.0.0",
     "@material-ui/icons": "1.1.0",
     "babel-plugin-ramda": "^1.2.0",
